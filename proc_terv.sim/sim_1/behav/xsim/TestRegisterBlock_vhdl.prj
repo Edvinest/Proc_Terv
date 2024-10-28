@@ -1,0 +1,8 @@
+# compile vhdl design source files
+vhdl xil_defaultlib  \
+"../../../../proc_terv.srcs/sources_1/new/DxInMux.vhd" \
+"../../../../proc_terv.srcs/sources_1/new/RegBlock.vhd" \
+"../../../../proc_terv.srcs/sim_1/imports/Downloads/TestRegisterBlock.vhd" \
+
+# Do not sort compile order
+nosort

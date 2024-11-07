@@ -54,7 +54,7 @@ type Tomb is array (0 to 63) of std_logic_vector(63 downto 0);
 begin
 
 DMemAddr <= conv_integer(DMemAddr_Dir)
-when Sel_Addr = '0' else conv_integer(DataOutY);
+when SelAddr = '0' else conv_integer(DataOutX);
 
 process(clk, Reset, MR, MW)
     variable Tarolo: Tomb := (others => (others => '0'));

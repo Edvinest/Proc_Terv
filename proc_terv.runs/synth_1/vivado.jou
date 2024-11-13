@@ -1,0 +1,14 @@
+#-----------------------------------------------------------
+# Vivado v2023.2.2 (64-bit)
+# SW Build 4126759 on Thu Feb  8 23:52:05 MST 2024
+# IP Build 4126054 on Fri Feb  9 11:39:09 MST 2024
+# SharedData Build 4115275 on Tue Jan 30 00:40:57 MST 2024
+# Start of session at: Wed Nov 13 11:42:47 2024
+# Process ID: 32193
+# Current directory: /home/edvinest/University/Architektura/proc_terv/proc_terv.runs/synth_1
+# Command line: vivado -log IFDEC.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source IFDEC.tcl
+# Log file: /home/edvinest/University/Architektura/proc_terv/proc_terv.runs/synth_1/IFDEC.vds
+# Journal file: /home/edvinest/University/Architektura/proc_terv/proc_terv.runs/synth_1/vivado.jou
+# Running On: antigamer-pc, OS: Linux, CPU Frequency: 2116.886 MHz, CPU Physical cores: 8, Host memory: 14362 MB
+#-----------------------------------------------------------
+source IFDEC.tcl -notrace

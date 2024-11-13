@@ -62,9 +62,9 @@ begin
     else
         if falling_edge(clk) then
             if Execute = '1' then
-            case instr_code is
+            case Instr_code is
                 when "000010"=> -- And sX, sY
-                Result(15 downto 0) := OP1 and OP2;
+                Result(15 downto 0) := Result(15 downto 8) & (OP1(7 downto 0) and OP2(7 downto 0));
                 if Result(15 downto 0) = x"0000" then
                     ZeroFlag := '1';
                 else
@@ -72,7 +72,7 @@ begin
                     end if;
                     
                 when "000011" => -- And sX, KK
-                    Result := KK_Const and OP1(7 downto 0);
+                    Result(15 downto 0) := Result(15 downto 8) & (KK_Const and OP1(7 downto 0));
                     if Result(15 downto 0) = x"0000" then
                         ZeroFlag := '1';
                     else
@@ -80,7 +80,7 @@ begin
                     end if;
                     
                 when "000101" => -- Or sX, KK
-                    Result := KK_Const or OP1(7 downto 0);
+                    Result(15 downto 0) := Result(15 downto 8) & (KK_Const or OP1(7 downto 0));
                     if Result(15 downto 0) = x"0000" then
                         ZeroFlag := '1';
                     else 
@@ -88,7 +88,7 @@ begin
                     end if;
                     
                 when "0000100" => -- Or sX, sY
-                    Result := OP1 or OP2;
+                    Result (15 downto 0) := Result(15 downto 8) & (OP1(7 downto 0) or OP2(7 downto 0));
                     if Result(15 downto 0) = x"0000" then
                         ZeroFlag := '1';
                     else
@@ -96,7 +96,7 @@ begin
                     end if;
                         
                 when "000111" => -- Xor sX, KK
-                    Result := KK_Const or OP1(7 downto 0);
+                    Result (15 downto 0):= Result(15 downto 8) & (KK_Const or OP1(7 downto 0));
                     if Result(15 downto 0) = x"0000" then
                         ZeroFlag := '1';
                     else 
@@ -104,7 +104,7 @@ begin
                     end if;
                 
                 when "000110" => -- Xor sX, sY
-                    Result := OP1 or OP2;
+                    Result (15 downto 0) := Result(15 downto 8) & (OP1(7 downto 0) or OP2(7 downto 0));
                     if Result(15 downto 0) = x"0000" then
                         ZeroFlag := '1';
                     else
@@ -112,14 +112,14 @@ begin
                     end if;
                     
                 when "001101" => -- Mult8 sX, KK
-                    Result := KK_Const * OP1(7 downto 0);
+                    Result(15 downto 0) := unsigned(KK_Const) * unsigned(OP1(7 downto 0));
                     if Result(15 downto 0) = x"0000" then
                         ZeroFlag := '1';
                     else ZeroFlag := '0';
                     end if;
                     
                 when "001100" => --Mult8 sX, sY
-                    Result := OP1 * OP2;
+                    Result(15 downto 0) := unsigned(OP1(7 downto 0)) * unsigned(OP2(7 downto 0));
                     if Result(15 downto 0) = x"0000" then
                         ZeroFlag := '1';
                     else ZeroFlag := '0';
@@ -135,7 +135,7 @@ begin
                     else ZeroFlag := '0';
                     end if;
                     
-                when "011100" => -- Comp sX, KK
+                when "011100" => -- Comp sX, sY
                     if(OP1(7 downto 0) < OP2(7 downto 0)) then
                         CarryFlag := '1';
                     else CarryFlag := '0';
@@ -146,7 +146,7 @@ begin
                     end if;
                     
                 when "010001" => -- Add sX, KK
-                    Result := ('0' & OP1) + ('0' & "00000000" & KK_Const);
+                    Result(15 downto 0) := ('0' & OP1(7 downto 0)) + ("00000000" & KK_Const);
                     CarryFlag := Result(16);
                    
                    if Result(15 downto 0) = x"0000" then
@@ -155,7 +155,7 @@ begin
                    end if;
                    
                 when "010000" => -- Add sX, sY
-                    Result := ('0' & OP1) + ('0' & "00000000" & OP2);
+                    Result(15 downto 0) := ('0' & OP1(7 downto 0)) + ("00000000" & OP2(7 downto 0));
                     CarryFlag := Result(16);
                    
                    if Result(15 downto 0) = x"0000" then
@@ -164,7 +164,7 @@ begin
                    end if;
                    
                 when "010011" => -- AddCy sX, KK
-                    Result := ('0' & OP1) + ('0' & "00000000" & KK_Const) + CarryFlag;
+                    Result(15 downto 0) := ('0' & OP1(7 downto 0)) + ("00000000" & KK_Const) + CarryFlag;
                     CarryFlag := Result(16);
                    
                    if Result(15 downto 0) = x"0000" then
@@ -173,7 +173,7 @@ begin
                    end if;
                    
                 when "010010" => -- AddCy sX, sY
-                    Result := ('0' & OP1) + ('0' & "00000000" & OP2) + CarryFlag;
+                    Result(15 downto 0) := ('0' & OP1(7 downto 0)) + ("00000000" & OP2(7 downto 0)) + CarryFlag;
                     CarryFlag := Result(16);
                    
                    if Result(15 downto 0) = x"0000" then
@@ -182,7 +182,7 @@ begin
                    end if;
                    
                    when "011001" => -- SUB sX, KK
-                    Result:= OP1-KK_const;
+                    Result(15 downto 0):= Result(15 downto 8) & (OP1(7 downto 0) - KK_const);
                     if(Result(15 downto 0)=x"0000")then -- eredmeny=0 eseten zeroflag lenullazasa
                         ZeroFlag:='1';
                     else
@@ -195,7 +195,7 @@ begin
                     end if;
                     
                     when "011000" => -- SUB sX, sY
-                    Result:= OP1-OP2-CarryFlag;
+                    Result(15 downto 0) := Result(15 downto 8) & (OP1(7 downto 0)-OP2(7 downto 0)-CarryFlag);
                     if(Result(15 downto 0)=x"0000")then -- eredmeny=0 eseten zeroflag lenullazasa
                         ZeroFlag:='1';
                     else
@@ -208,7 +208,7 @@ begin
                     end if;
                    
                    when "011011" => -- SUBCY sX,KK
-                    Result:= OP1-KK_const-CarryFlag;
+                    Result(15 downto 0) := Result(15 downto 8) & (OP1(7 downto 0)-KK_const-CarryFlag);
                     if(Result(15 downto 0)=x"0000")then -- eredmeny=0 eseten zeroflag lenullazasa
                         ZeroFlag:='1';
                     else
@@ -220,8 +220,8 @@ begin
                         CarryFlag:='1';
                     end if;
                     
-                when "011011" => -- SUBCY sX, sY
-                    Result:= OP1-OP2-CarryFlag;
+                when "011010" => -- SUBCY sX, sY
+                    Result(15 downto 0) := Result(15 downto 8) & (OP1(7 downto 0)-OP2(7 downto 0)-CarryFlag);
                     if(Result(15 downto 0)=x"0000")then -- eredmeny=0 eseten zeroflag lenullazasa
                         ZeroFlag:='1';
                     else
@@ -269,7 +269,7 @@ begin
                                 ZeroFlag:='0';
                             end if;
                             
-                         when "1000" => -- RR
+                         when "1100" => -- RR
                             CarryFlag := OP1(0);
                             Result(14 downto 0) := OP1(15 downto 1);
                             Result(15) := OP1(0);
@@ -294,7 +294,7 @@ begin
                             Result(15 downto 1) :=OP1(14 downto 0);
                             Result(0) :='1';
                             
-                        when "1010" => -- SLx
+                        when "0100" => -- SLx
                             CarryFlag := OP1(15);
                             Result(15 downto 1) := OP1(14 downto 0);
                             Result(0) := OP1(0);
@@ -304,7 +304,7 @@ begin
                                 ZeroFlag:='0';
                             end if;
                             
-                         when "1000" => -- SLA
+                         when "0000" => -- SLA
                             CarryFlag := OP1(15);
                             Result(15 downto 1) := OP1(14 downto 0);
                             Result(0) := CarryFlag;
@@ -314,7 +314,7 @@ begin
                                 ZeroFlag:='0';
                             end if;
                             
-                         when "1000" => -- RL
+                         when "0010" => -- RL
                             CarryFlag := OP1(15);
                             Result(15 downto 1) := OP1(14 downto 0);
                             Result(0) := OP1(15);
@@ -323,10 +323,18 @@ begin
                             else
                                 ZeroFlag:='0';
                             end if;
-                    end case; 
+                            
+                         when others =>
+                            null;
+                    end case;
+                    
+               when others =>
+                    Result := (others => '0');
+                    CarryFlag := '0';
+                    ZeroFlag := '0';
             end case;
             
-            ALU_Result <= Result;
+            ALU_Result <= Result(15 downto 0);
             Carry <= CarryFlag;
             Zero <= ZeroFlag;
            end if;

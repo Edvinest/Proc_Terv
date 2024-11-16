@@ -1,43 +1,93 @@
-----------------------------------------------------------------------------------
--- Company: 
--- Engineer: 
--- 
--- Create Date: 11/13/2024 09:42:26 AM
--- Design Name: 
--- Module Name: PortLogic_Sim - Behavioral
--- Project Name: 
--- Target Devices: 
--- Tool Versions: 
--- Description: 
--- 
--- Dependencies: 
--- 
--- Revision:
--- Revision 0.01 - File Created
--- Additional Comments:
--- 
-----------------------------------------------------------------------------------
-
-
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
+use IEEE.NUMERIC_STD.ALL;
 
--- Uncomment the following library declaration if using
--- arithmetic functions with Signed or Unsigned values
---use IEEE.NUMERIC_STD.ALL;
+entity PortLogic_tb is
+end PortLogic_tb;
 
--- Uncomment the following library declaration if instantiating
--- any Xilinx leaf cells in this code.
---library UNISIM;
---use UNISIM.VComponents.all;
+architecture sim of PortLogic_tb is
+    -- Signals to connect to the PortLogic UUT
+    signal clk          : std_logic := '0';
+    signal reset        : std_logic := '0';
+    signal PortID_dir   : std_logic_vector(7 downto 0) := (others => '0');
+    signal PortID_indir : std_logic_vector(7 downto 0) := (others => '1');
+    signal PortDataIn   : std_logic_vector(15 downto 0) := (others => '0');
+    signal PortID_sel   : std_logic := '0';
+    signal IORD         : std_logic := '1';
+    signal IOWR         : std_logic := '1';
+    signal DataOutX     : std_logic_vector(15 downto 0) := (others => '0');
+    signal PortID       : std_logic_vector(7 downto 0);
+    signal PortDataOut  : std_logic_vector(15 downto 0);
+    signal Rd_strobe    : std_logic;
+    signal Wr_strobe    : std_logic;
+    signal PortIntoCPU  : std_logic_vector(15 downto 0);
 
-entity PortLogic_Sim is
---  Port ( );
-end PortLogic_Sim;
-
-architecture Behavioral of PortLogic_Sim is
-
+    -- Clock period definition
+    constant clk_period : time := 10 ns;
+    
 begin
+    -- Instantiate the Unit Under Test (UUT)
+    uut: entity work.PortLogic
+        port map (
+            clk         => clk,
+            reset       => reset,
+            PortID_dir  => PortID_dir,
+            PortID_indir => PortID_indir,
+            PortDataIn  => PortDataIn,
+            PortID_sel  => PortID_sel,
+            IORD        => IORD,
+            IOWR        => IOWR,
+            DataOutX    => DataOutX,
+            PortID      => PortID,
+            PortDataOut => PortDataOut,
+            Rd_strobe   => Rd_strobe,
+            Wr_strobe   => Wr_strobe,
+            PortIntoCPU => PortIntoCPU
+        );
 
+    -- Clock generation process
+    clk_process : process
+    begin
+        clk <= '0';
+        wait for clk_period / 2;
+        clk <= '1';
+        wait for clk_period / 2;
+    end process;
 
-end Behavioral;
+    -- Test Process
+    test_process : process
+    begin
+        -- Test case 1: Reset behavior
+        reset <= '1';
+        wait for clk_period;
+        reset <= '0';
+        wait for clk_period;
+
+        -- Test case 2: Direct and indirect PortID selection
+        PortID_sel <= '0';
+        wait for clk_period;
+        assert (PortID = PortID_dir) report "PortID_dir not selected correctly" severity error;
+
+        PortID_sel <= '1';
+        wait for clk_period;
+        assert (PortID = PortID_indir) report "PortID_indir not selected correctly" severity error;
+
+        -- Test case 3: Read operation
+        PortDataIn <= x"ABCD";
+        IORD <= '1';
+        IOWR <= '0';
+        wait for clk_period;
+        assert (Rd_strobe = '1' and PortIntoCPU = x"ABCD") report "Read operation failed" severity error;
+
+        -- Test case 4: Write operation
+        DataOutX <= x"1234";
+        IORD <= '0';
+        IOWR <= '1';
+        wait for clk_period;
+        assert (Wr_strobe = '1' and PortDataOut = x"1234") report "Write operation failed" severity error;
+
+        -- End simulation
+        wait for 5 * clk_period;
+        assert false report "End of simulation" severity failure;
+    end process;
+end sim;

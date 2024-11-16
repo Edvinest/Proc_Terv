@@ -35,7 +35,7 @@ entity DxInMux is
     Port ( DataMemOut : in STD_LOGIC_VECTOR (15 downto 0);
            PortIntoCPU : in STD_LOGIC_VECTOR (15 downto 0);
            ALUresult : in STD_LOGIC_VECTOR (15 downto 0);
-           KK_const : in STD_LOGIC_VECTOR (15 downto 0);
+           KK_const : in STD_LOGIC_VECTOR (7 downto 0);
            Dy : in STD_LOGIC_VECTOR (15 downto 0);
            MuxSet : in STD_LOGIC_VECTOR (2 downto 0);
            Dataxin : out STD_LOGIC_VECTOR (15 downto 0));
@@ -54,7 +54,7 @@ begin
         when "010" => 
             Dataxin <= ALUresult;
         when "011" => 
-            Dataxin <= KK_const;
+            Dataxin <= "00000000" & KK_const;
         when "100" =>
             Dataxin <= Dy;
         when others =>

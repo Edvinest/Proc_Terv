@@ -88,12 +88,12 @@ process(reset, Instr_Phase, Instruction)
                         Sx_Addr <= Instruction(11 downto 8);
                         Sy_Addr <= Instruction(7 downto 4);
                
-               when "010100" | "010100" =>
+               when "010100" =>
                         Sx_Addr <= Instruction(11 downto 8);
                         AL_Instr_ext <= Instruction(3 downto 0);
                
                --Elágazásképző utasítások
-               when "100010" | "110010" | "110110" | "111010" | "111110" | "100000" | "110000" | "1101100" | "111000" | "111100"=>
+               when "100010" | "110010" | "110110" | "111010" | "111110" | "100000" | "110000" | "111000" | "111100"=>
                         Branch_Addr <= Instruction(11 downto 0);
                         
                 when others =>

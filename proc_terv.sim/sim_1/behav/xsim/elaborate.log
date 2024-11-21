@@ -1,7 +1,7 @@
 Vivado Simulator v2023.2.2
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
-Running: /tools/Xilinx/Vivado/2023.2/bin/unwrapped/lnx64.o/xelab --incr --debug typical --relax --mt 8 -L xil_defaultlib -L secureip --snapshot TestRegisterBlock_behav xil_defaultlib.TestRegisterBlock -log elaborate.log 
+Running: /tools/Xilinx/Vivado/2023.2/bin/unwrapped/lnx64.o/xelab --incr --debug typical --relax --mt 8 -L xil_defaultlib -L secureip --snapshot Top_Level_Test_behav xil_defaultlib.Top_Level_Test -log elaborate.log 
 Using 8 slave threads.
 Starting static elaboration
 Completed static elaboration
@@ -12,7 +12,26 @@ Compiling package std.standard
 Compiling package std.textio
 Compiling package ieee.std_logic_1164
 Compiling package ieee.numeric_std
+Compiling package ieee.std_logic_arith
+Compiling package ieee.std_logic_unsigned
+Compiling package xil_defaultlib.jtag_loader_pkg
+Compiling package unisim.vcomponents
+Compiling package ieee.std_logic_signed
+Compiling package ieee.std_logic_textio
+Compiling package ieee.vital_timing
+Compiling package ieee.vital_primitives
+Compiling package unisim.vpkg
 Compiling architecture behavioral of entity xil_defaultlib.RegBlock [regblock_default]
+Compiling architecture behavioral of entity xil_defaultlib.PortLogic_0 [portlogic_0_default]
+Compiling architecture behavioral of entity xil_defaultlib.PFC [pfc_default]
 Compiling architecture behavioral of entity xil_defaultlib.DxInMux [dxinmux_default]
-Compiling architecture behavior of entity xil_defaultlib.testregisterblock
-Built simulation snapshot TestRegisterBlock_behav
+Compiling architecture behavioral of entity xil_defaultlib.IFDEC [ifdec_default]
+Compiling architecture behavioral of entity xil_defaultlib.DataMem_0 [datamem_0_default]
+Compiling architecture behavioral of entity xil_defaultlib.ALU_0 [alu_0_default]
+Compiling architecture behavioral of entity xil_defaultlib.CPU [cpu_default]
+Compiling architecture rb36_internal_vhdl_v of entity unisim.RB36_INTERNAL_VHDL [\RB36_INTERNAL_VHDL(initp_00="00...]
+Compiling architecture ramb36e1_v of entity unisim.RAMB36E1 [\RAMB36E1(initp_00="000000000000...]
+Compiling architecture low_level_definition of entity xil_defaultlib.memoria [\memoria(c_family="7S",c_ram_siz...]
+Compiling architecture behavioral of entity xil_defaultlib.Top_Level [top_level_default]
+Compiling architecture behavioral of entity xil_defaultlib.top_level_test
+Built simulation snapshot Top_Level_Test_behav

@@ -49,7 +49,7 @@ end DataMem_0;
 architecture Behavioral of DataMem_0 is
 
 signal DMemAddr: integer range 0 to 63 := 0;
-type Tomb is array (0 to 63) of std_logic_vector(63 downto 0);
+type Tomb is array (0 to 63) of std_logic_vector(15 downto 0);
 
 begin
 

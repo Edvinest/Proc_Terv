@@ -139,6 +139,16 @@ component PortLogic_0
            PortIntoCPU : out STD_LOGIC_VECTOR (15 downto 0));
 end component;
 
+component DxInMux
+    Port ( DataMemOut : in STD_LOGIC_VECTOR (15 downto 0);
+           PortIntoCPU : in STD_LOGIC_VECTOR (15 downto 0);
+           ALUresult : in STD_LOGIC_VECTOR (15 downto 0);
+           KK_const : in STD_LOGIC_VECTOR (7 downto 0);
+           Dy : in STD_LOGIC_VECTOR (15 downto 0);
+           MuxSet : in STD_LOGIC_VECTOR (2 downto 0);
+           Dataxin : out STD_LOGIC_VECTOR (15 downto 0));
+end component;
+
     -- Shared signal declarations across components with the same name
     signal SxAddr           : STD_LOGIC_VECTOR(3 downto 0);
     signal SyAddr           : STD_LOGIC_VECTOR(3 downto 0);
@@ -232,16 +242,16 @@ begin
         );
 
     -- Mux instance
-    Mux_inst: DxInMux
-        port map (
-            MUX_Sel => Mux_Sel,
-            DataMemOut => DataMemOut,
-            PortIntoCPU => PortIntoCPU,
-            ALUresult => ALU_Result,
-            KK_const => KK_const,
-            DataOut_Y => Data_Out_y,
-            DataOutMUX => PortDataOut
-        );
+Mux_inst: DxInMux
+    port map (
+        MuxSet => Mux_Sel,
+        DataMemOut => DataMemOut,
+        PortIntoCPU => PortIntoCPU,
+        ALUresult => ALU_Result,
+        KK_const => KK_const,
+        Dy => Data_Out_y,
+        Dataxin => PortDataOut
+    );
 
     -- IfAndDec instance
     IfAndDec_inst: IFDEC
@@ -261,18 +271,18 @@ begin
         );
 
     -- DataMemory instance
-    DataMemory_inst: DataMem_0
-        port map (
-            Clk => clk,
-            reset => Reset,
-            DataOutX => Data_Out_x,
-            DataOutY => DMemAddr_dir,
-            DMemAdd_Dir => DMemAddr_dir,
-            SelAddr => Sel_Addr,
-            MRd => IORD,
-            MWr => IOWR,
-            DataMemOut => DataMemOut
-        );
+DataMemory_inst: DataMem_0
+    port map (
+        clk => clk,
+        Reset => Reset,
+        DataoutX => Data_Out_x,
+        DmemAddr_dir => DMemAddr_dir,
+        DmemAddr_indir => DMemAddr_dir,
+        SelAddr => Sel_Addr,
+        MR => IORD,
+        MW => IOWR,
+        DataMemOut => DataMemOut
+    );
 
     -- ALU instance
     ALU_inst: ALU_0

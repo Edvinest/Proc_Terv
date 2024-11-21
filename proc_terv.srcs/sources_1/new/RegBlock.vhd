@@ -58,7 +58,6 @@ variable Tarolo: Regs := (others =>(others => '0'));
                 Tarolo := (others => (others => '0'));
                 DataoutX <= (others => '0');
                 DataoutY <= (others => '0');
-                end if;
             else
                 if RW = '1' then
                     Tarolo(to_integer(unsigned(SX_addr))) := Dataxin;
@@ -67,6 +66,7 @@ variable Tarolo: Regs := (others =>(others => '0'));
                     DataoutY <= Tarolo(to_integer(unsigned(SY_addr)));
                 end if;
         end if;
+   end if;
                 
 end process;
 

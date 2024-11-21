@@ -1,60 +1,83 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="synth_1" LaunchPart="xc7z020clg400-1" LaunchTime="1731490965" LaunchIncrCheckpoint="$PSRCDIR/utils_1/imports/synth_1/ALU_0.dcp">
-  <File Type="VDS-TIMINGSUMMARY" Name="IFDEC_timing_summary_synth.rpt"/>
-  <File Type="RDS-DCP" Name="IFDEC.dcp"/>
-  <File Type="RDS-UTIL-PB" Name="IFDEC_utilization_synth.pb"/>
-  <File Type="RDS-UTIL" Name="IFDEC_utilization_synth.rpt"/>
-  <File Type="RDS-PROPCONSTRS" Name="IFDEC_drc_synth.rpt"/>
-  <File Type="RDS-RDS" Name="IFDEC.vds"/>
-  <File Type="REPORTS-TCL" Name="IFDEC_reports.tcl"/>
-  <File Type="VDS-TIMING-PB" Name="IFDEC_timing_summary_synth.pb"/>
-  <File Type="PA-TCL" Name="IFDEC.tcl"/>
+<GenRun Id="synth_1" LaunchPart="xc7z020clg400-1" LaunchTime="1732113385" LaunchIncrCheckpoint="$PSRCDIR/utils_1/imports/synth_1/ALU_0.dcp">
+  <File Type="VDS-TIMINGSUMMARY" Name="Top_Level_timing_summary_synth.rpt"/>
+  <File Type="RDS-DCP" Name="Top_Level.dcp"/>
+  <File Type="RDS-UTIL-PB" Name="Top_Level_utilization_synth.pb"/>
+  <File Type="RDS-UTIL" Name="Top_Level_utilization_synth.rpt"/>
+  <File Type="RDS-PROPCONSTRS" Name="Top_Level_drc_synth.rpt"/>
+  <File Type="RDS-RDS" Name="Top_Level.vds"/>
+  <File Type="REPORTS-TCL" Name="Top_Level_reports.tcl"/>
+  <File Type="VDS-TIMING-PB" Name="Top_Level_timing_summary_synth.pb"/>
+  <File Type="PA-TCL" Name="Top_Level.tcl"/>
   <FileSet Name="sources" Type="DesignSrcs" RelSrcDir="$PSRCDIR/sources_1" RelGenDir="$PGENDIR/sources_1">
     <Filter Type="Srcs"/>
-    <File Path="$PSRCDIR/sources_1/new/IFDEC.vhd">
-      <FileInfo>
-        <Attr Name="UsedIn" Val="synthesis"/>
-        <Attr Name="UsedIn" Val="simulation"/>
-      </FileInfo>
-    </File>
-    <File Path="$PSRCDIR/sources_1/new/PortLogic_0.vhd">
-      <FileInfo>
-        <Attr Name="AutoDisabled" Val="1"/>
-        <Attr Name="UsedIn" Val="synthesis"/>
-        <Attr Name="UsedIn" Val="simulation"/>
-      </FileInfo>
-    </File>
     <File Path="$PSRCDIR/sources_1/new/ALU_0.vhd">
       <FileInfo>
-        <Attr Name="AutoDisabled" Val="1"/>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
-    <File Path="$PSRCDIR/sources_1/new/DxInMux.vhd">
+    <File Path="$PSRCDIR/sources_1/new/CPU.vhd">
       <FileInfo>
-        <Attr Name="AutoDisabled" Val="1"/>
-        <Attr Name="UsedIn" Val="synthesis"/>
-        <Attr Name="UsedIn" Val="simulation"/>
-      </FileInfo>
-    </File>
-    <File Path="$PSRCDIR/sources_1/new/RegBlock.vhd">
-      <FileInfo>
-        <Attr Name="AutoDisabled" Val="1"/>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
     <File Path="$PSRCDIR/sources_1/new/DataMem_0.vhd">
       <FileInfo>
-        <Attr Name="AutoDisabled" Val="1"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/new/DxInMux.vhd">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/new/IFDEC.vhd">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/Downloads/PFC.vhd">
+      <FileInfo>
+        <Attr Name="ImportPath" Val="$PPRDIR/../../../Downloads/PFC.vhd"/>
+        <Attr Name="ImportTime" Val="1731509137"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/new/PortLogic_0.vhd">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/new/RegBlock.vhd">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/Downloads/memoria.vhd">
+      <FileInfo>
+        <Attr Name="ImportPath" Val="$PPRDIR/../lab_2/lab_2.srcs/sources_1/imports/Downloads/memoria.vhd"/>
+        <Attr Name="ImportTime" Val="1727874883"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/new/Top_Level.vhd">
+      <FileInfo>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
     <Config>
       <Option Name="DesignMode" Val="RTL"/>
-      <Option Name="TopModule" Val="IFDEC"/>
+      <Option Name="TopModule" Val="Top_Level"/>
     </Config>
   </FileSet>
   <FileSet Name="constrs_in" Type="Constrs" RelSrcDir="$PSRCDIR/constrs_1" RelGenDir="$PGENDIR/constrs_1">

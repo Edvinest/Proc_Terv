@@ -87,7 +87,7 @@ begin
                         ZeroFlag := '0';
                     end if;
                     
-                when "0000100" => -- Or sX, sY
+                when "000100" => -- Or sX, sY
                     Result (15 downto 0) := Result(15 downto 8) & (OP1(7 downto 0) or OP2(7 downto 0));
                     if Result(15 downto 0) = x"0000" then
                         ZeroFlag := '1';

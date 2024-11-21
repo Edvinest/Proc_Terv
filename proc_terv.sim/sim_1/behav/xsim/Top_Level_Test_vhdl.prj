@@ -1,0 +1,16 @@
+# compile vhdl design source files
+vhdl xil_defaultlib  \
+"../../../../proc_terv.srcs/sources_1/new/ALU_0.vhd" \
+"../../../../proc_terv.srcs/sources_1/new/CPU.vhd" \
+"../../../../proc_terv.srcs/sources_1/new/DataMem_0.vhd" \
+"../../../../proc_terv.srcs/sources_1/new/DxInMux.vhd" \
+"../../../../proc_terv.srcs/sources_1/new/IFDEC.vhd" \
+"../../../../proc_terv.srcs/sources_1/imports/Downloads/PFC.vhd" \
+"../../../../proc_terv.srcs/sources_1/new/PortLogic_0.vhd" \
+"../../../../proc_terv.srcs/sources_1/new/RegBlock.vhd" \
+"../../../../proc_terv.srcs/sources_1/new/Top_Level.vhd" \
+"../../../../../lab_2/lab_2.srcs/sources_1/imports/Downloads/memoria.vhd" \
+"../../../../proc_terv.srcs/sim_1/new/Top_Level_Test.vhd" \
+
+# Do not sort compile order
+nosort

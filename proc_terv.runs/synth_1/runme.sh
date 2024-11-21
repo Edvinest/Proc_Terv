@@ -37,4 +37,4 @@ EAStep()
      fi
 }
 
-EAStep vivado -log IFDEC.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source IFDEC.tcl
+EAStep vivado -log Top_Level.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source Top_Level.tcl

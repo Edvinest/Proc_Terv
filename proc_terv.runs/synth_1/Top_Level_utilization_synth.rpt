@@ -1,10 +1,10 @@
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
 ---------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2023.2.2 (lin64) Build 4126759 Thu Feb  8 23:52:05 MST 2024
-| Date         : Wed Nov 13 11:43:11 2024
+| Date         : Wed Nov 20 16:36:53 2024
 | Host         : antigamer-pc running 64-bit Nobara Linux 40 (KDE Plasma)
-| Command      : report_utilization -file IFDEC_utilization_synth.rpt -pb IFDEC_utilization_synth.pb
-| Design       : IFDEC
+| Command      : report_utilization -file Top_Level_utilization_synth.rpt -pb Top_Level_utilization_synth.pb
+| Design       : Top_Level
 | Device       : xc7z020clg400-1
 | Speed File   : -1
 | Design State : Synthesized
@@ -31,12 +31,12 @@ Table of Contents
 +-------------------------+------+-------+------------+-----------+-------+
 |        Site Type        | Used | Fixed | Prohibited | Available | Util% |
 +-------------------------+------+-------+------------+-----------+-------+
-| Slice LUTs*             |   45 |     0 |          0 |     53200 |  0.08 |
-|   LUT as Logic          |   45 |     0 |          0 |     53200 |  0.08 |
+| Slice LUTs*             |    0 |     0 |          0 |     53200 |  0.00 |
+|   LUT as Logic          |    0 |     0 |          0 |     53200 |  0.00 |
 |   LUT as Memory         |    0 |     0 |          0 |     17400 |  0.00 |
-| Slice Registers         |   46 |     0 |          0 |    106400 |  0.04 |
+| Slice Registers         |    0 |     0 |          0 |    106400 |  0.00 |
 |   Register as Flip Flop |    0 |     0 |          0 |    106400 |  0.00 |
-|   Register as Latch     |   46 |     0 |          0 |    106400 |  0.04 |
+|   Register as Latch     |    0 |     0 |          0 |    106400 |  0.00 |
 | F7 Muxes                |    0 |     0 |          0 |     26600 |  0.00 |
 | F8 Muxes                |    0 |     0 |          0 |     13300 |  0.00 |
 +-------------------------+------+-------+------------+-----------+-------+
@@ -57,7 +57,7 @@ Warning! LUT value is adjusted to account for LUT combining.
 | 0     |            _ |       Reset |            - |
 | 0     |          Yes |           - |            - |
 | 0     |          Yes |           - |          Set |
-| 46    |          Yes |           - |        Reset |
+| 0     |          Yes |           - |        Reset |
 | 0     |          Yes |         Set |            - |
 | 0     |          Yes |       Reset |            - |
 +-------+--------------+-------------+--------------+
@@ -92,7 +92,7 @@ Warning! LUT value is adjusted to account for LUT combining.
 +-----------------------------+------+-------+------------+-----------+-------+
 |          Site Type          | Used | Fixed | Prohibited | Available | Util% |
 +-----------------------------+------+-------+------------+-----------+-------+
-| Bonded IOB                  |   75 |     0 |          0 |       125 | 60.00 |
+| Bonded IOB                  |    4 |     0 |          0 |       125 |  3.20 |
 | Bonded IPADs                |    0 |     0 |          0 |         2 |  0.00 |
 | Bonded IOPADs               |    0 |     0 |          0 |       130 |  0.00 |
 | PHY_CONTROL                 |    0 |     0 |          0 |         4 |  0.00 |
@@ -148,14 +148,7 @@ Warning! LUT value is adjusted to account for LUT combining.
 +----------+------+---------------------+
 | Ref Name | Used | Functional Category |
 +----------+------+---------------------+
-| OBUF     |   53 |                  IO |
-| LDCE     |   46 |        Flop & Latch |
-| LUT2     |   27 |                 LUT |
-| LUT6     |   25 |                 LUT |
-| IBUF     |   22 |                  IO |
-| LUT4     |    9 |                 LUT |
-| LUT5     |    2 |                 LUT |
-| LUT3     |    1 |                 LUT |
+| OBUF     |    4 |                  IO |
 +----------+------+---------------------+
 
 

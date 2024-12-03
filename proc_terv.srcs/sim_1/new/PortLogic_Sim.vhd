@@ -25,9 +25,26 @@ architecture sim of PortLogic_tb is
     -- Clock period definition
     constant clk_period : time := 10 ns;
     
+    component PortLogic_0
+    Port ( clk : in STD_LOGIC;
+           reset : in STD_LOGIC;
+           PortID_dir : in STD_LOGIC_VECTOR (7 downto 0);
+           PortID_indir : in STD_LOGIC_VECTOR (7 downto 0);
+           PortDataIn : in STD_LOGIC_VECTOR (15 downto 0);
+           PortID_sel : in STD_LOGIC;
+           IORD : in STD_LOGIC;
+           IOWR : in STD_LOGIC;
+           DataOutX : in STD_LOGIC_VECTOR (15 downto 0);
+           PortID : out STD_LOGIC_VECTOR (7 downto 0);
+           PortDataOut : out STD_LOGIC_VECTOR (15 downto 0);
+           Rd_strobe : out STD_LOGIC;
+           Wr_strobe : out STD_LOGIC;
+           PortIntoCPU : out STD_LOGIC_VECTOR (15 downto 0));
+end component;
+    
 begin
     -- Instantiate the Unit Under Test (UUT)
-    uut: entity work.PortLogic
+    uut: PortLogic_0
         port map (
             clk         => clk,
             reset       => reset,
@@ -57,7 +74,7 @@ begin
     -- Test Process
     test_process : process
     begin
-        -- Test case 1: Reset behavior
+         -- Test case 1: Reset behavior
         reset <= '1';
         wait for clk_period;
         reset <= '0';
@@ -87,7 +104,6 @@ begin
         assert (Wr_strobe = '1' and PortDataOut = x"1234") report "Write operation failed" severity error;
 
         -- End simulation
-        wait for 5 * clk_period;
-        assert false report "End of simulation" severity failure;
-    end process;
+        wait;
+   end process;
 end sim;

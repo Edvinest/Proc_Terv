@@ -1,0 +1,7 @@
+Running: xsim.dir/IFDEC_tb_behav/xsimk -simmode gui -wdb IFDEC_tb_behav.wdb -simrunnum 0 -socket 50459
+Design successfully loaded
+Design Loading Memory Usage: 23292 KB (Peak: 23948 KB)
+Design Loading CPU Usage: 50 ms
+Simulation completed
+Simulation Memory Usage: 106000 KB (Peak: 162560 KB)
+Simulation CPU Usage: 60 ms

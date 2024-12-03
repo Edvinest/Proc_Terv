@@ -1,0 +1,1 @@
+--incr --debug "typical" --relax --mt "8" -L "xil_defaultlib" -L "secureip" --snapshot "DataMem_Sim_behav" "xil_defaultlib.DataMem_Sim" -log "elaborate.log" 

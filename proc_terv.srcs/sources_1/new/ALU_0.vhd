@@ -60,8 +60,8 @@ begin
         Carry <= '0';
         Zero <= '0';
     else
+       if Execute = '1' then
         if falling_edge(clk) then
-            if Execute = '1' then
             case Instr_code is
                 when "000010"=> -- And sX, sY
                 Result(15 downto 0) := Result(15 downto 8) & (OP1(7 downto 0) and OP2(7 downto 0));
@@ -325,21 +325,23 @@ begin
                             end if;
                             
                          when others =>
-                            null;
+                                 Result := (others => '0');
+                                 ZeroFlag := '0';
+                                 CarryFlag := '0';
                     end case;
                     
                when others =>
-                    Result := (others => '0');
-                    CarryFlag := '0';
-                    ZeroFlag := '0';
+                        Result := (others => '0');
+                        ZeroFlag := '0';
+                        CarryFlag := '0';
             end case;
-            
-            ALU_Result <= Result(15 downto 0);
-            Carry <= CarryFlag;
-            Zero <= ZeroFlag;
            end if;
        end if;
+           ALU_Result <= Result(15 downto 0);
+           Carry <= CarryFlag;
+           Zero <= ZeroFlag;
     end if;
+    
 end process;
 
 end Behavioral;

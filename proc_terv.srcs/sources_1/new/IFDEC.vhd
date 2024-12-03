@@ -65,8 +65,9 @@ process(reset, Instr_Phase, Instruction)
         
     else
         if Instr_Phase = "000" then
+        Instr_code <= Instruction(17 downto 12);
              case Instruction(17 downto 12) is
-             --Adatmozgató utasítások
+             
                 when "000001" => --Load
                         Sx_Addr <= Instruction(11 downto 8);
                         KK_const <= Instruction(7 downto 0);
@@ -80,32 +81,27 @@ process(reset, Instr_Phase, Instruction)
                         Sx_Addr <= Instruction(11 downto 8);
                         DMemAddr_dir <= Instruction(5 downto 0); 
               
-              --Aritmetikai és Logikai utasítások
+              
                 when "000011" | "000101" | "000111" | "001101" | "011101" | "010001" | "010011" | "011001" | "011011" => -- And vagy Or vagy Xor vagy Mult8 vagy Comp vagy Add vagy AddCy vagy Sub vagy SubCy
                         Sx_Addr <= Instruction(11 downto 8);
                         KK_const <= Instruction(7 downto 0);
-                when "000010" | "000100" | "000110" | "001100" | "011100" | "010000" | "010010" | "011000" | "011010" => -- And vagy Or vagy Xor vagy Mult8 vagy Comp vagy Add vagy AddCy vagy Sub vagy SubCy
+                when "000010" | "000100" | "000110" | "001100" | "011100" | "010000" | "010010" | "011000" | "011010" =>
                         Sx_Addr <= Instruction(11 downto 8);
                         Sy_Addr <= Instruction(7 downto 4);
-               
-               when "010100" =>
-                        Sx_Addr <= Instruction(11 downto 8);
-                        AL_Instr_ext <= Instruction(3 downto 0);
-               
-               --Elágazásképző utasítások
-               when "100010" | "110010" | "110110" | "111010" | "111110" | "100000" | "110000" | "111000" | "111100"=>
+              
+               when "100010" =>
                         Branch_Addr <= Instruction(11 downto 0);
-                        
+
                 when others =>
-                        Sx_Addr <= (others => '0');
-                        Sy_Addr <= (others => '0');
-                        DMemAddr_dir <= (others => '0');
-                        ENInterrupt <= '0';
-                        PortID_dir <= (others => '0');
-                        Branch_Addr <= (others => '0');
-                        AL_Instr_Ext <= (others => '0');
-                        KK_Const <= (others => '0');
-                        Instr_code <= (others => '0');
+                    Sx_Addr <= (others => '0');
+                    Sy_Addr <= (others => '0');
+                    DMemAddr_dir <= (others => '0');
+                    ENInterrupt <= '0';
+                    PortID_dir <= (others => '0');
+                    Branch_Addr <= (others => '0');
+                    AL_Instr_Ext <= (others => '0');
+                    KK_Const <= (others => '0');
+                    Instr_code <= (others => '0');
               end case;
             end if;
          end if;

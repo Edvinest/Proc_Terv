@@ -39,22 +39,23 @@ architecture Behavioral of Top_Level_Test is
 
 component Top_Level is
     Port ( clk : in STD_LOGIC;
+           reset: in STD_LOGIC;
            btn : in STD_LOGIC_VECTOR (3 downto 0);
            led : out STD_LOGIC_VECTOR (3 downto 0));
 end component;
-
     signal btn : std_logic_vector (3 downto 0) := (others => '0');
     signal led : std_logic_vector (3 downto 0)  :=  (others =>'0');
+    signal reset : std_logic := '0';
     
-    
-    signal clk          : std_logic := '0';
-    constant clk_period : time := 10 ns;
+    signal clk : std_logic := '0';
+    constant clk_period : time := 8 ns;
 begin
 
 uut: Top_Level PORT MAP (
        clk => clk,
        btn => btn,
-       led => led
+       led => led,
+       reset => reset
 );
 
 clk_process : process
@@ -66,16 +67,16 @@ clk_process : process
     end process;
 
  stim_proc: process
-   begin        
+   begin		
       -- hold reset state for 100 ns.
-      wait for 100 ns;
-      
-      btn <= "0000";
       wait for clk_period;
+      
+      btn <= x"1";
+      wait;
+
       
       
       
     end process;
-
 
 end Behavioral;

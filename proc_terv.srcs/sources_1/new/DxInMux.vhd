@@ -44,7 +44,7 @@ end DxInMux;
 architecture Behavioral of DxInMux is
 
 begin
-process(DataMemOut, PortIntoCPU, ALUresult, KK_const, Dy, MuxSet)
+process(MuxSet)
 begin
     case MuxSet is
         when "000" => 

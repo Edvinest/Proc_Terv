@@ -1,130 +1,147 @@
 ----------------------------------------------------------------------------------
--- Company: 
--- Engineer: 
--- 
--- Create Date: 11/13/2024 09:13:56 AM
--- Design Name: 
--- Module Name: ALU_Sim - Behavioral
--- Project Name: 
--- Target Devices: 
--- Tool Versions: 
--- Description: 
--- 
--- Dependencies: 
--- 
--- Revision:
--- Revision 0.01 - File Created
--- Additional Comments:
--- 
+-- Testbench for ALU_0
 ----------------------------------------------------------------------------------
-
 
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
-
--- Uncomment the following library declaration if using
--- arithmetic functions with Signed or Unsigned values
---use IEEE.NUMERIC_STD.ALL;
-
--- Uncomment the following library declaration if instantiating
--- any Xilinx leaf cells in this code.
---library UNISIM;
---use UNISIM.VComponents.all;
+use IEEE.NUMERIC_STD.ALL;
 
 entity ALU_Sim is
---  Port ( );
 end ALU_Sim;
 
 architecture Behavioral of ALU_Sim is
 
-component ALU_0
-    Port ( clk : in STD_LOGIC;
-           reset : in STD_LOGIC;
-           OP1 : in STD_LOGIC_VECTOR (15 downto 0);
-           OP2 : in STD_LOGIC_VECTOR (15 downto 0);
-           Instr_code : in STD_LOGIC_VECTOR (5 downto 0);
-           Al_Instr_Ext : in STD_LOGIC_VECTOR (3 downto 0);
-           KK_Const : in STD_LOGIC_VECTOR (7 downto 0);
-           Execute : in STD_LOGIC;
-           Carry : out STD_LOGIC;
-           Zero : out STD_LOGIC;
-           ALU_Result : out STD_LOGIC_VECTOR (15 downto 0));
-end component;
+    component ALU_0
+        Port (
+            clk         : in  STD_LOGIC;
+            reset       : in  STD_LOGIC;
+            OP1         : in  STD_LOGIC_VECTOR (15 downto 0);
+            OP2         : in  STD_LOGIC_VECTOR (15 downto 0);
+            Instr_code  : in  STD_LOGIC_VECTOR (5 downto 0);
+            Al_Instr_Ext: in  STD_LOGIC_VECTOR (3 downto 0);
+            KK_Const    : in  STD_LOGIC_VECTOR (7 downto 0);
+            Execute     : in  STD_LOGIC;
+            Carry       : out STD_LOGIC;
+            Zero        : out STD_LOGIC;
+            ALU_Result  : out STD_LOGIC_VECTOR (15 downto 0)
+        );
+    end component;
 
--- Inputs
-signal clk : std_logic := '0';
-signal reset : std_logic := '0';
-signal OP1 : std_logic_vector(15 downto 0) := (others => '0');
-signal OP2 : std_logic_vector(15 downto 0) := (others => '0');
-signal Instr_code : std_logic_vector(5 downto 0) := (others => '0');
-signal Al_Instr_Ext : std_logic_vector(3 downto 0) := (others => '0');
-signal KK_Const : std_logic_vector(7 downto 0) := (others => '0');
-signal Execute : std_logic := '0';
-
--- Outputs
-signal Carry : std_logic := '0';
-signal Zero : std_logic := '0';
-signal ALU_Result : std_logic_vector (15 downto 0);
-constant clk_period : time := 10 ns;
+    -- Testbench signals
+    signal clk         : STD_LOGIC := '0';
+    signal reset       : STD_LOGIC := '0';
+    signal OP1         : STD_LOGIC_VECTOR(15 downto 0) := (others => '0');
+    signal OP2         : STD_LOGIC_VECTOR(15 downto 0) := (others => '0');
+    signal Instr_code  : STD_LOGIC_VECTOR(5 downto 0) := (others => '0');
+    signal Al_Instr_Ext: STD_LOGIC_VECTOR(3 downto 0) := (others => '0');
+    signal KK_Const    : STD_LOGIC_VECTOR(7 downto 0) := (others => '0');
+    signal Execute     : STD_LOGIC := '0';
+    signal Carry       : STD_LOGIC;
+    signal Zero        : STD_LOGIC;
+    signal ALU_Result  : STD_LOGIC_VECTOR(15 downto 0);
+    constant clk_period: time := 10 ns;
 
 begin
 
-   uut1: ALU_0 PORT MAP(
-   clk => clk,
-   reset => reset,
-   OP1 => OP1,
-   OP2 => OP2,
-   Instr_code => Instr_code,
-   Al_Instr_Ext => Al_Instr_Ext,
-   KK_const => KK_const,
-   Execute => Execute
-);
+    -- DUT instantiation
+    uut: ALU_0
+        port map (
+            clk         => clk,
+            reset       => reset,
+            OP1         => OP1,
+            OP2         => OP2,
+            Instr_code  => Instr_code,
+            Al_Instr_Ext=> Al_Instr_Ext,
+            KK_Const    => KK_Const,
+            Execute     => Execute,
+            Carry       => Carry,
+            Zero        => Zero,
+            ALU_Result  => ALU_Result
+        );
 
-   -- Clock process definitions
-   clk_process :process
-   begin
-		clk <= '0';
-		wait for clk_period/2;
-		clk <= '1';
-		wait for clk_period/2;
-   end process;
+    -- Clock generation
+    clk_process: process
+    begin
+        clk <= '0';
+        wait for clk_period / 2;
+        clk <= '1';
+        wait for clk_period / 2;
+    end process;
 
+    -- Stimulus process
     stim_proc: process
     begin
-        wait for 100ns;
-        
+        -- Reset the system
         reset <= '1';
-        wait for clk_period * 2;
+        wait for clk_period;
         reset <= '0';
-        wait for clk_period * 2;
-        
-        -- Add sX, sY
-        OP1 <= x"0002";
-        OP2 <= x"0001";
-        Instr_code <= "000010";
-        Execute <= '1';
         wait for clk_period;
-        Execute <= '0';
-        wait for clk_period;
-        
-        -- Add sX, KK
+
+        -- Test case 1: Add sX, sY
         OP1 <= x"0003";
-        KK_Const <= x"0003";
-        Instr_code <= "000011";
+        OP2 <= x"0002";
+        Instr_code <= "010000";  -- Add sX, sY
         Execute <= '1';
         wait for clk_period;
         Execute <= '0';
+        wait for clk_period * 2;
+
+        -- Test case 2: Add sX, KK
+        OP1 <= x"0005";
+        KK_Const <= x"01";
+        Instr_code <= "010001";  -- Add sX, KK
+        Execute <= '1';
         wait for clk_period;
-        
-        -- Or sX, KK
+        Execute <= '0';
+        wait for clk_period * 2;
+
+        -- Test case 3: And sX, sY
+        OP1 <= x"000F";
+        OP2 <= x"00F0";
+        Instr_code <= "000010";  -- And sX, sY
+        Execute <= '1';
+        wait for clk_period;
+        Execute <= '0';
+        wait for clk_period * 2;
+
+        -- Test case 4: Or sX, KK
+        OP1 <= x"0003";
+        KK_Const <= x"0C";
+        Instr_code <= "000101";  -- Or sX, KK
+        Execute <= '1';
+        wait for clk_period;
+        Execute <= '0';
+        wait for clk_period * 2;
+
+        -- Test case 5: Multiply sX, KK
         OP1 <= x"0002";
-        KK_const <= x"0000";
-        Instr_code <= "000101";
+        KK_Const <= x"03";
+        Instr_code <= "001101";  -- Mult8 sX, KK
         Execute <= '1';
         wait for clk_period;
         Execute <= '0';
+        wait for clk_period * 2;
+
+        -- Test case 6: Compare sX, KK
+        OP1 <= x"0002";
+        KK_Const <= x"02";
+        Instr_code <= "011101";  -- Compare sX, KK
+        Execute <= '1';
         wait for clk_period;
-        
+        Execute <= '0';
+        wait for clk_period * 2;
+
+        -- Test case 7: Sub sX, KK
+        OP1 <= x"0005";
+        KK_Const <= x"03";
+        Instr_code <= "011001";  -- Sub sX, KK
+        Execute <= '1';
+        wait for clk_period;
+        Execute <= '0';
+        wait for clk_period * 2;
+
+        -- End simulation
+        wait;
     end process;
 
 end Behavioral;

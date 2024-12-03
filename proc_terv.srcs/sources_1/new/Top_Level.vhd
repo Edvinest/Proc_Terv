@@ -33,6 +33,7 @@ use IEEE.STD_LOGIC_1164.ALL;
 
 entity Top_Level is
     Port ( clk : in STD_LOGIC;
+           reset : in STD_LOGIC;
            btn : in STD_LOGIC_VECTOR (3 downto 0);
            led : out STD_LOGIC_VECTOR (3 downto 0));
 end Top_Level;
@@ -50,7 +51,7 @@ component CPU
            ReadStrobe : out STD_LOGIC;
            WriteStrobe : out STD_LOGIC;
            Interrupt_acknowledge : out STD_LOGIC;
-           Interrupt_Address : out STD_LOGIC_VECTOR (11 downto 0));
+           Instruction_Address : out STD_LOGIC_VECTOR (11 downto 0));
 end component;
 
 component memoria is
@@ -64,32 +65,29 @@ component memoria is
                   clk : in std_logic);
   end component;
 
-signal reset : std_logic;
 signal PortDataIn : std_logic_vector (15 downto 0);
-signal Interrupt : std_logic;
-signal Instruction : std_logic_vector (17 downto 0);
 signal PortDataOut : std_logic_vector (15 downto 0);
-signal PortID : std_logic_vector (7 downto 0);
-signal ReadStrobe : std_logic;
-signal WriteStrobe : std_logic;
-signal Interrupt_acknowledge : std_logic;
-signal Interrupt_Address : std_logic_vector(11 downto 0);
+signal Instruction : std_logic_vector (17 downto 0);
+signal Port_ID : std_logic_vector (7 downto 0);
+signal Read_strobe : std_logic;
+signal Write_strobe : std_logic;
+signal Instruction_Address : std_logic_vector(11 downto 0);
 
 begin
 
-process(clk, WriteStrobe, PortID)
+process(clk, Write_strobe, Port_ID)
     begin
         if clk'event and clk='1' then
-            if WriteStrobe = '1' and PortID=x"06" then
+            if Write_strobe = '1' and Port_ID=x"06" then
                 led <= PortDataOut(3 downto 0);
             end if;
         end if;
 end process;
 
-process(clk, ReadStrobe, PortID)
+process(clk, Read_strobe, Port_ID)
     begin
         if clk'event and clk = '1' then
-            if ReadStrobe = '1' and PortID=x"05" then
+            if Read_strobe = '1' and Port_ID=x"05" then
                 PortDataIn <= "000000000000"&btn;
             end if;
         end if;
@@ -101,14 +99,14 @@ processzor : CPU
            clk => clk,
            reset => reset,
            PortDataIn => PortDataIn,
-           Interrupt => Interrupt,
+           Interrupt => '0',
            Instruction => Instruction,
            PortDataOut => PortDataOut,
-           PortID => PortID,
-           ReadStrobe => ReadStrobe,
-           WriteStrobe => WriteStrobe,
-           Interrupt_acknowledge => Interrupt_acknowledge,
-           Interrupt_Address => Interrupt_Address
+           PortID => Port_ID,
+           ReadStrobe => Read_strobe,
+           WriteStrobe => Write_strobe,
+           Interrupt_acknowledge => open,
+           Instruction_Address => Instruction_Address
     );
     
 mem: memoria
@@ -117,7 +115,7 @@ mem: memoria
            C_RAM_SIZE_KWORDS => 2,
            C_JTAG_LOADER_ENABLE => 0)
   Port map(      
-          address => Interrupt_Address,
+          address => Instruction_Address,
           instruction => Instruction,
                enable => '1',
                   rdl => open,                   

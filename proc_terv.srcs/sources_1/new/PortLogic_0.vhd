@@ -60,16 +60,14 @@ PortID <= PortID_dir when PortID_sel = '0' else PortID_indir;
 
 process(clk, reset, IORD, IOWR)
 begin
-    if reset = '1' or IOWR = '0' or IOWR = '0' then
-        counter <= 0;
-    else
-        if falling_edge(clk) then
-            if counter < 2 then
-                counter <= counter + 1;
-            else 
+    if reset = '1' then
+            counter <= 0;
+    elsif falling_edge(clk) then
+            if IORD = '0' and IOWR = '0' then
                 counter <= 0;
+            elsif counter <= 2 then
+                counter <= counter + 1;
             end if;
-        end if;
     end if;
 end process;
 
@@ -79,33 +77,31 @@ process(clk, reset, counter ,IORD, IOWR)
         if reset = '1' then
             PortDataOut <= (others => '0');
             PortIntoCPU <= (others => '0');
+            Rd_strobe <= '0';
+            Wr_strobe <= '0';
             
         else
             if falling_edge(clk) then
                 if IORD = '1' and IOWR = '0' then
                     case counter is
                         when 0 =>
-                            null;
+                            Rd_strobe <= '0';
                         when 1 =>
                             Rd_strobe <= '1';
                         when 2 =>
                             PortIntoCPU <= PortDataIn;
                         end case;
-                elsif IORD = '0' then
-                        Rd_strobe <= '0';
                 end if;
                 
                 if IORD = '0' and IOWR = '1' then
                     case counter is        
                         when 0 =>
-                            null;
+                            Wr_strobe <= '0';    
                         when 1 =>
                             PortDataOut <= DataOutX;
                         when 2 =>
                             Wr_strobe <= '1';
                         end case;
-                elsif IOWR = '0' then
-                        Wr_strobe <= '0';
                 end if;
             end if;
         end if;

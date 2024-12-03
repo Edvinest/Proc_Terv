@@ -3,16 +3,16 @@
 # SW Build 4126759 on Thu Feb  8 23:52:05 MST 2024
 # IP Build 4126054 on Fri Feb  9 11:39:09 MST 2024
 # SharedData Build 4115275 on Tue Jan 30 00:40:57 MST 2024
-# Start of session at: Wed Nov 20 16:36:27 2024
-# Process ID: 44991
+# Start of session at: Tue Dec  3 09:15:46 2024
+# Process ID: 13927
 # Current directory: /home/edvinest/University/Architektura/proc_terv/proc_terv.runs/synth_1
 # Command line: vivado -log Top_Level.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source Top_Level.tcl
 # Log file: /home/edvinest/University/Architektura/proc_terv/proc_terv.runs/synth_1/Top_Level.vds
 # Journal file: /home/edvinest/University/Architektura/proc_terv/proc_terv.runs/synth_1/vivado.jou
-# Running On: antigamer-pc, OS: Linux, CPU Frequency: 4215.880 MHz, CPU Physical cores: 8, Host memory: 14362 MB
+# Running On: antigamer-pc, OS: Linux, CPU Frequency: 1896.387 MHz, CPU Physical cores: 8, Host memory: 14362 MB
 #-----------------------------------------------------------
 source Top_Level.tcl -notrace
-create_project: Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 1485.125 ; gain = 11.930 ; free physical = 1179 ; free virtual = 31323
+create_project: Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 1529.004 ; gain = 0.023 ; free physical = 236 ; free virtual = 31573
 Command: read_checkpoint -auto_incremental -incremental /home/edvinest/University/Architektura/proc_terv/proc_terv.srcs/utils_1/imports/synth_1/ALU_0.dcp
 INFO: [Vivado 12-5825] Read reference checkpoint from /home/edvinest/University/Architektura/proc_terv/proc_terv.srcs/utils_1/imports/synth_1/ALU_0.dcp for incremental synthesis
 INFO: [Vivado 12-7989] Please ensure there are no constraint changes
@@ -20,47 +20,49 @@ Command: synth_design -top Top_Level -part xc7z020clg400-1
 Starting synth_design
 Attempting to get a license for feature 'Synthesis' and/or device 'xc7z020'
 INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7z020'
-INFO: [Vivado_Tcl 4-1810] synth_design options have changed between reference and incremental; A full resynthesis will be run
+INFO: [Designutils 20-5440] No compile time benefit to using incremental synthesis; A full resynthesis will be run
+INFO: [Designutils 20-4379] Flow is switching to default flow due to incremental criteria not met. If you would like to alter this behaviour and have the flow terminate instead, please set the following parameter config_implementation {autoIncr.Synth.RejectBehavior Terminate}
 INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 4 processes.
 INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
-INFO: [Synth 8-7075] Helper process launched with PID 45008
+INFO: [Synth 8-7075] Helper process launched with PID 13949
 ---------------------------------------------------------------------------------
-Starting Synthesize : Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 1912.621 ; gain = 411.652 ; free physical = 460 ; free virtual = 30604
+Starting Synthesize : Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 1910.781 ; gain = 381.777 ; free physical = 155 ; free virtual = 30906
 ---------------------------------------------------------------------------------
-INFO: [Synth 8-638] synthesizing module 'Top_Level' [/home/edvinest/University/Architektura/proc_terv/proc_terv.srcs/sources_1/new/Top_Level.vhd:40]
-INFO: [Synth 8-3491] module 'CPU' declared at '/home/edvinest/University/Architektura/proc_terv/proc_terv.srcs/sources_1/new/CPU.vhd:34' bound to instance 'processzor' of component 'CPU' [/home/edvinest/University/Architektura/proc_terv/proc_terv.srcs/sources_1/new/Top_Level.vhd:99]
-INFO: [Synth 8-638] synthesizing module 'CPU' [/home/edvinest/University/Architektura/proc_terv/proc_terv.srcs/sources_1/new/CPU.vhd:48]
-INFO: [Synth 8-3491] module 'RegBlock' declared at '/home/edvinest/University/Architektura/proc_terv/proc_terv.srcs/sources_1/new/RegBlock.vhd:35' bound to instance 'RegisterBlock_inst' of component 'RegBlock' [/home/edvinest/University/Architektura/proc_terv/proc_terv.srcs/sources_1/new/CPU.vhd:188]
+INFO: [Synth 8-638] synthesizing module 'Top_Level' [/home/edvinest/University/Architektura/proc_terv/proc_terv.srcs/sources_1/new/Top_Level.vhd:41]
+INFO: [Synth 8-3491] module 'CPU' declared at '/home/edvinest/University/Architektura/proc_terv/proc_terv.srcs/sources_1/new/CPU.vhd:36' bound to instance 'processzor' of component 'CPU' [/home/edvinest/University/Architektura/proc_terv/proc_terv.srcs/sources_1/new/Top_Level.vhd:97]
+INFO: [Synth 8-638] synthesizing module 'CPU' [/home/edvinest/University/Architektura/proc_terv/proc_terv.srcs/sources_1/new/CPU.vhd:50]
+INFO: [Synth 8-3491] module 'RegBlock' declared at '/home/edvinest/University/Architektura/proc_terv/proc_terv.srcs/sources_1/new/RegBlock.vhd:35' bound to instance 'RegisterBlock_inst' of component 'RegBlock' [/home/edvinest/University/Architektura/proc_terv/proc_terv.srcs/sources_1/new/CPU.vhd:189]
 INFO: [Synth 8-638] synthesizing module 'RegBlock' [/home/edvinest/University/Architektura/proc_terv/proc_terv.srcs/sources_1/new/RegBlock.vhd:46]
 INFO: [Synth 8-256] done synthesizing module 'RegBlock' (0#1) [/home/edvinest/University/Architektura/proc_terv/proc_terv.srcs/sources_1/new/RegBlock.vhd:46]
-INFO: [Synth 8-3491] module 'PortLogic_0' declared at '/home/edvinest/University/Architektura/proc_terv/proc_terv.srcs/sources_1/new/PortLogic_0.vhd:36' bound to instance 'PortLogic_inst' of component 'PortLogic_0' [/home/edvinest/University/Architektura/proc_terv/proc_terv.srcs/sources_1/new/CPU.vhd:201]
+INFO: [Synth 8-3491] module 'PortLogic_0' declared at '/home/edvinest/University/Architektura/proc_terv/proc_terv.srcs/sources_1/new/PortLogic_0.vhd:36' bound to instance 'PortLogic_inst' of component 'PortLogic_0' [/home/edvinest/University/Architektura/proc_terv/proc_terv.srcs/sources_1/new/CPU.vhd:202]
 INFO: [Synth 8-638] synthesizing module 'PortLogic_0' [/home/edvinest/University/Architektura/proc_terv/proc_terv.srcs/sources_1/new/PortLogic_0.vhd:53]
 INFO: [Synth 8-256] done synthesizing module 'PortLogic_0' (0#1) [/home/edvinest/University/Architektura/proc_terv/proc_terv.srcs/sources_1/new/PortLogic_0.vhd:53]
-INFO: [Synth 8-3491] module 'PFC' declared at '/home/edvinest/University/Architektura/proc_terv/proc_terv.srcs/sources_1/imports/Downloads/PFC.vhd:34' bound to instance 'PFC_inst' of component 'PFC' [/home/edvinest/University/Architektura/proc_terv/proc_terv.srcs/sources_1/new/CPU.vhd:220]
+INFO: [Synth 8-3491] module 'PFC' declared at '/home/edvinest/University/Architektura/proc_terv/proc_terv.srcs/sources_1/imports/Downloads/PFC.vhd:34' bound to instance 'PFC_inst' of component 'PFC' [/home/edvinest/University/Architektura/proc_terv/proc_terv.srcs/sources_1/new/CPU.vhd:221]
 INFO: [Synth 8-638] synthesizing module 'PFC' [/home/edvinest/University/Architektura/proc_terv/proc_terv.srcs/sources_1/imports/Downloads/PFC.vhd:57]
 INFO: [Synth 8-256] done synthesizing module 'PFC' (0#1) [/home/edvinest/University/Architektura/proc_terv/proc_terv.srcs/sources_1/imports/Downloads/PFC.vhd:57]
-INFO: [Synth 8-3491] module 'DxInMux' declared at '/home/edvinest/University/Architektura/proc_terv/proc_terv.srcs/sources_1/new/DxInMux.vhd:34' bound to instance 'Mux_inst' of component 'DxInMux' [/home/edvinest/University/Architektura/proc_terv/proc_terv.srcs/sources_1/new/CPU.vhd:245]
+INFO: [Synth 8-3491] module 'DxInMux' declared at '/home/edvinest/University/Architektura/proc_terv/proc_terv.srcs/sources_1/new/DxInMux.vhd:34' bound to instance 'Mux_inst' of component 'DxInMux' [/home/edvinest/University/Architektura/proc_terv/proc_terv.srcs/sources_1/new/CPU.vhd:246]
 INFO: [Synth 8-638] synthesizing module 'DxInMux' [/home/edvinest/University/Architektura/proc_terv/proc_terv.srcs/sources_1/new/DxInMux.vhd:44]
+WARNING: [Synth 8-614] signal 'DataMemOut' is read in the process but is not in the sensitivity list [/home/edvinest/University/Architektura/proc_terv/proc_terv.srcs/sources_1/new/DxInMux.vhd:47]
+WARNING: [Synth 8-614] signal 'PortIntoCPU' is read in the process but is not in the sensitivity list [/home/edvinest/University/Architektura/proc_terv/proc_terv.srcs/sources_1/new/DxInMux.vhd:47]
+WARNING: [Synth 8-614] signal 'ALUresult' is read in the process but is not in the sensitivity list [/home/edvinest/University/Architektura/proc_terv/proc_terv.srcs/sources_1/new/DxInMux.vhd:47]
+WARNING: [Synth 8-614] signal 'KK_const' is read in the process but is not in the sensitivity list [/home/edvinest/University/Architektura/proc_terv/proc_terv.srcs/sources_1/new/DxInMux.vhd:47]
+WARNING: [Synth 8-614] signal 'Dy' is read in the process but is not in the sensitivity list [/home/edvinest/University/Architektura/proc_terv/proc_terv.srcs/sources_1/new/DxInMux.vhd:47]
 INFO: [Synth 8-256] done synthesizing module 'DxInMux' (0#1) [/home/edvinest/University/Architektura/proc_terv/proc_terv.srcs/sources_1/new/DxInMux.vhd:44]
-INFO: [Synth 8-3491] module 'IFDEC' declared at '/home/edvinest/University/Architektura/proc_terv/proc_terv.srcs/sources_1/new/IFDEC.vhd:34' bound to instance 'IfAndDec_inst' of component 'IFDEC' [/home/edvinest/University/Architektura/proc_terv/proc_terv.srcs/sources_1/new/CPU.vhd:257]
+INFO: [Synth 8-3491] module 'IFDEC' declared at '/home/edvinest/University/Architektura/proc_terv/proc_terv.srcs/sources_1/new/IFDEC.vhd:34' bound to instance 'IfAndDec_inst' of component 'IFDEC' [/home/edvinest/University/Architektura/proc_terv/proc_terv.srcs/sources_1/new/CPU.vhd:258]
 INFO: [Synth 8-638] synthesizing module 'IFDEC' [/home/edvinest/University/Architektura/proc_terv/proc_terv.srcs/sources_1/new/IFDEC.vhd:49]
-WARNING: [Synth 8-6044] Case expression and choice expression width mismatch, Case expression is 6 wide and choice expression is 7 wide [/home/edvinest/University/Architektura/proc_terv/proc_terv.srcs/sources_1/new/IFDEC.vhd:96]
-WARNING: [Synth 8-151] case item 6'b010100 is unreachable [/home/edvinest/University/Architektura/proc_terv/proc_terv.srcs/sources_1/new/IFDEC.vhd:68]
-WARNING: [Synth 8-153] case item 7'b1101100 will never be executed [/home/edvinest/University/Architektura/proc_terv/proc_terv.srcs/sources_1/new/IFDEC.vhd:68]
 INFO: [Synth 8-256] done synthesizing module 'IFDEC' (0#1) [/home/edvinest/University/Architektura/proc_terv/proc_terv.srcs/sources_1/new/IFDEC.vhd:49]
-INFO: [Synth 8-3491] module 'DataMem_0' declared at '/home/edvinest/University/Architektura/proc_terv/proc_terv.srcs/sources_1/new/DataMem_0.vhd:37' bound to instance 'DataMemory_inst' of component 'DataMem_0' [/home/edvinest/University/Architektura/proc_terv/proc_terv.srcs/sources_1/new/CPU.vhd:274]
+INFO: [Synth 8-3491] module 'DataMem_0' declared at '/home/edvinest/University/Architektura/proc_terv/proc_terv.srcs/sources_1/new/DataMem_0.vhd:37' bound to instance 'DataMemory_inst' of component 'DataMem_0' [/home/edvinest/University/Architektura/proc_terv/proc_terv.srcs/sources_1/new/CPU.vhd:275]
 INFO: [Synth 8-638] synthesizing module 'DataMem_0' [/home/edvinest/University/Architektura/proc_terv/proc_terv.srcs/sources_1/new/DataMem_0.vhd:49]
 INFO: [Synth 8-256] done synthesizing module 'DataMem_0' (0#1) [/home/edvinest/University/Architektura/proc_terv/proc_terv.srcs/sources_1/new/DataMem_0.vhd:49]
-INFO: [Synth 8-3491] module 'ALU_0' declared at '/home/edvinest/University/Architektura/proc_terv/proc_terv.srcs/sources_1/new/ALU_0.vhd:35' bound to instance 'ALU_inst' of component 'ALU_0' [/home/edvinest/University/Architektura/proc_terv/proc_terv.srcs/sources_1/new/CPU.vhd:288]
+INFO: [Synth 8-3491] module 'ALU_0' declared at '/home/edvinest/University/Architektura/proc_terv/proc_terv.srcs/sources_1/new/ALU_0.vhd:35' bound to instance 'ALU_inst' of component 'ALU_0' [/home/edvinest/University/Architektura/proc_terv/proc_terv.srcs/sources_1/new/CPU.vhd:289]
 INFO: [Synth 8-638] synthesizing module 'ALU_0' [/home/edvinest/University/Architektura/proc_terv/proc_terv.srcs/sources_1/new/ALU_0.vhd:49]
-WARNING: [Synth 8-6044] Case expression and choice expression width mismatch, Case expression is 6 wide and choice expression is 7 wide [/home/edvinest/University/Architektura/proc_terv/proc_terv.srcs/sources_1/new/ALU_0.vhd:90]
 INFO: [Synth 8-256] done synthesizing module 'ALU_0' (0#1) [/home/edvinest/University/Architektura/proc_terv/proc_terv.srcs/sources_1/new/ALU_0.vhd:49]
-INFO: [Synth 8-256] done synthesizing module 'CPU' (0#1) [/home/edvinest/University/Architektura/proc_terv/proc_terv.srcs/sources_1/new/CPU.vhd:48]
+INFO: [Synth 8-256] done synthesizing module 'CPU' (0#1) [/home/edvinest/University/Architektura/proc_terv/proc_terv.srcs/sources_1/new/CPU.vhd:50]
 	Parameter C_FAMILY bound to: 7S - type: string 
 	Parameter C_RAM_SIZE_KWORDS bound to: 2 - type: integer 
 	Parameter C_JTAG_LOADER_ENABLE bound to: 0 - type: integer 
-INFO: [Synth 8-3491] module 'memoria' declared at '/home/edvinest/University/Architektura/proc_terv/proc_terv.srcs/sources_1/imports/Downloads/memoria.vhd:132' bound to instance 'mem' of component 'memoria' [/home/edvinest/University/Architektura/proc_terv/proc_terv.srcs/sources_1/new/Top_Level.vhd:114]
-INFO: [Synth 8-638] synthesizing module 'memoria' [/home/edvinest/University/Architektura/proc_terv/proc_terv.srcs/sources_1/imports/Downloads/memoria.vhd:143]
+INFO: [Synth 8-3491] module 'memoria' declared at '/home/edvinest/University/Architektura/lab_2/lab_2.srcs/sources_1/imports/Downloads/memoria.vhd:132' bound to instance 'mem' of component 'memoria' [/home/edvinest/University/Architektura/proc_terv/proc_terv.srcs/sources_1/new/Top_Level.vhd:112]
+INFO: [Synth 8-638] synthesizing module 'memoria' [/home/edvinest/University/Architektura/lab_2/lab_2.srcs/sources_1/imports/Downloads/memoria.vhd:143]
 	Parameter C_FAMILY bound to: 7S - type: string 
 	Parameter C_RAM_SIZE_KWORDS bound to: 2 - type: integer 
 	Parameter C_JTAG_LOADER_ENABLE bound to: 0 - type: integer 
@@ -68,7 +70,7 @@ INFO: [Synth 8-638] synthesizing module 'memoria' [/home/edvinest/University/Arc
 	Parameter DOB_REG bound to: 0 - type: integer 
 	Parameter EN_ECC_READ bound to: 0 - type: bool 
 	Parameter EN_ECC_WRITE bound to: 0 - type: bool 
-	Parameter INITP_00 bound to: 256'b0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000010100000 
+	Parameter INITP_00 bound to: 256'b0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000101000 
 	Parameter INITP_01 bound to: 256'b0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000 
 	Parameter INITP_02 bound to: 256'b0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000 
 	Parameter INITP_03 bound to: 256'b0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000 
@@ -84,7 +86,7 @@ INFO: [Synth 8-638] synthesizing module 'memoria' [/home/edvinest/University/Arc
 	Parameter INITP_0D bound to: 256'b0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000 
 	Parameter INITP_0E bound to: 256'b0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000 
 	Parameter INITP_0F bound to: 256'b0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000 
-	Parameter INIT_00 bound to: 256'b0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000010000000000001110100010000011010010001000001010001000100000000 
+	Parameter INIT_00 bound to: 256'b0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000001000000000000011010001000001101001000100000101 
 	Parameter INIT_01 bound to: 256'b0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000 
 	Parameter INIT_02 bound to: 256'b0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000 
 	Parameter INIT_03 bound to: 256'b0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000 
@@ -231,65 +233,40 @@ INFO: [Synth 8-638] synthesizing module 'memoria' [/home/edvinest/University/Arc
 	Parameter WRITE_MODE_B bound to: WRITE_FIRST - type: string 
 	Parameter WRITE_WIDTH_A bound to: 18 - type: integer 
 	Parameter WRITE_WIDTH_B bound to: 18 - type: integer 
-INFO: [Synth 8-113] binding component instance 'kcpsm6_rom' to cell 'RAMB36E1' [/home/edvinest/University/Architektura/proc_terv/proc_terv.srcs/sources_1/imports/Downloads/memoria.vhd:1162]
-INFO: [Synth 8-256] done synthesizing module 'memoria' (0#1) [/home/edvinest/University/Architektura/proc_terv/proc_terv.srcs/sources_1/imports/Downloads/memoria.vhd:143]
-INFO: [Synth 8-256] done synthesizing module 'Top_Level' (0#1) [/home/edvinest/University/Architektura/proc_terv/proc_terv.srcs/sources_1/new/Top_Level.vhd:40]
-WARNING: [Synth 8-3848] Net ReadStrobe in module/entity CPU does not have driver. [/home/edvinest/University/Architektura/proc_terv/proc_terv.srcs/sources_1/new/CPU.vhd:42]
-WARNING: [Synth 8-3848] Net WriteStrobe in module/entity CPU does not have driver. [/home/edvinest/University/Architektura/proc_terv/proc_terv.srcs/sources_1/new/CPU.vhd:43]
-WARNING: [Synth 8-3848] Net Interrupt_acknowledge in module/entity CPU does not have driver. [/home/edvinest/University/Architektura/proc_terv/proc_terv.srcs/sources_1/new/CPU.vhd:44]
-WARNING: [Synth 8-3848] Net Interrupt_Address in module/entity CPU does not have driver. [/home/edvinest/University/Architektura/proc_terv/proc_terv.srcs/sources_1/new/CPU.vhd:45]
-WARNING: [Synth 8-3848] Net PortID_indir in module/entity CPU does not have driver. [/home/edvinest/University/Architektura/proc_terv/proc_terv.srcs/sources_1/new/CPU.vhd:159]
-WARNING: [Synth 8-3848] Net DataOutX in module/entity CPU does not have driver. [/home/edvinest/University/Architektura/proc_terv/proc_terv.srcs/sources_1/new/CPU.vhd:163]
-WARNING: [Synth 8-3848] Net reset in module/entity Top_Level does not have driver. [/home/edvinest/University/Architektura/proc_terv/proc_terv.srcs/sources_1/new/Top_Level.vhd:67]
-WARNING: [Synth 8-3848] Net Interrupt in module/entity Top_Level does not have driver. [/home/edvinest/University/Architektura/proc_terv/proc_terv.srcs/sources_1/new/Top_Level.vhd:69]
+INFO: [Synth 8-113] binding component instance 'kcpsm6_rom' to cell 'RAMB36E1' [/home/edvinest/University/Architektura/lab_2/lab_2.srcs/sources_1/imports/Downloads/memoria.vhd:1162]
+INFO: [Synth 8-256] done synthesizing module 'memoria' (0#1) [/home/edvinest/University/Architektura/lab_2/lab_2.srcs/sources_1/imports/Downloads/memoria.vhd:143]
+INFO: [Synth 8-256] done synthesizing module 'Top_Level' (0#1) [/home/edvinest/University/Architektura/proc_terv/proc_terv.srcs/sources_1/new/Top_Level.vhd:41]
+WARNING: [Synth 8-3848] Net Interrupt_acknowledge in module/entity CPU does not have driver. [/home/edvinest/University/Architektura/proc_terv/proc_terv.srcs/sources_1/new/CPU.vhd:46]
+WARNING: [Synth 8-3848] Net PortID_indir in module/entity CPU does not have driver. [/home/edvinest/University/Architektura/proc_terv/proc_terv.srcs/sources_1/new/CPU.vhd:162]
 WARNING: [Synth 8-7129] Port Al_Instr_Ext[3] in module ALU_0 is either unconnected or has no load
 WARNING: [Synth 8-7129] Port Al_Instr_Ext[2] in module ALU_0 is either unconnected or has no load
 WARNING: [Synth 8-7129] Port Al_Instr_Ext[1] in module ALU_0 is either unconnected or has no load
 WARNING: [Synth 8-7129] Port Al_Instr_Ext[0] in module ALU_0 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port DmemAddr_indir[5] in module DataMem_0 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port DmemAddr_indir[4] in module DataMem_0 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port DmemAddr_indir[3] in module DataMem_0 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port DmemAddr_indir[2] in module DataMem_0 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port DmemAddr_indir[1] in module DataMem_0 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port DmemAddr_indir[0] in module DataMem_0 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port ReadStrobe in module CPU is either unconnected or has no load
-WARNING: [Synth 8-7129] Port WriteStrobe in module CPU is either unconnected or has no load
+WARNING: [Synth 8-7129] Port DataoutY[15] in module DataMem_0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port DataoutY[14] in module DataMem_0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port DataoutY[13] in module DataMem_0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port DataoutY[12] in module DataMem_0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port DataoutY[11] in module DataMem_0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port DataoutY[10] in module DataMem_0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port DataoutY[9] in module DataMem_0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port DataoutY[8] in module DataMem_0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port DataoutY[7] in module DataMem_0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port DataoutY[6] in module DataMem_0 is either unconnected or has no load
 WARNING: [Synth 8-7129] Port Interrupt_acknowledge in module CPU is either unconnected or has no load
-WARNING: [Synth 8-7129] Port Interrupt_Address[11] in module CPU is either unconnected or has no load
-WARNING: [Synth 8-7129] Port Interrupt_Address[10] in module CPU is either unconnected or has no load
-WARNING: [Synth 8-7129] Port Interrupt_Address[9] in module CPU is either unconnected or has no load
-WARNING: [Synth 8-7129] Port Interrupt_Address[8] in module CPU is either unconnected or has no load
-WARNING: [Synth 8-7129] Port Interrupt_Address[7] in module CPU is either unconnected or has no load
-WARNING: [Synth 8-7129] Port Interrupt_Address[6] in module CPU is either unconnected or has no load
-WARNING: [Synth 8-7129] Port Interrupt_Address[5] in module CPU is either unconnected or has no load
-WARNING: [Synth 8-7129] Port Interrupt_Address[4] in module CPU is either unconnected or has no load
-WARNING: [Synth 8-7129] Port Interrupt_Address[3] in module CPU is either unconnected or has no load
-WARNING: [Synth 8-7129] Port Interrupt_Address[2] in module CPU is either unconnected or has no load
-WARNING: [Synth 8-7129] Port Interrupt_Address[1] in module CPU is either unconnected or has no load
-WARNING: [Synth 8-7129] Port Interrupt_Address[0] in module CPU is either unconnected or has no load
 ---------------------------------------------------------------------------------
-Finished Synthesize : Time (s): cpu = 00:00:05 ; elapsed = 00:00:06 . Memory (MB): peak = 2002.590 ; gain = 501.621 ; free physical = 317 ; free virtual = 30465
+Finished Synthesize : Time (s): cpu = 00:00:05 ; elapsed = 00:00:06 . Memory (MB): peak = 2003.719 ; gain = 474.715 ; free physical = 141 ; free virtual = 30792
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:06 ; elapsed = 00:00:06 . Memory (MB): peak = 2020.402 ; gain = 519.434 ; free physical = 326 ; free virtual = 30473
+Finished Constraint Validation : Time (s): cpu = 00:00:06 ; elapsed = 00:00:06 . Memory (MB): peak = 2021.531 ; gain = 492.527 ; free physical = 141 ; free virtual = 30792
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7z020clg400-1
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:06 ; elapsed = 00:00:06 . Memory (MB): peak = 2028.406 ; gain = 527.438 ; free physical = 326 ; free virtual = 30473
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:06 ; elapsed = 00:00:06 . Memory (MB): peak = 2029.535 ; gain = 500.531 ; free physical = 141 ; free virtual = 30792
 ---------------------------------------------------------------------------------
 INFO: [Device 21-403] Loading part xc7z020clg400-1
----------------------------------------------------------------------------------
-Start Preparing Guide Design
----------------------------------------------------------------------------------
----------------------------------------------------------------------------------
-Finished Doing Graph Differ : Time (s): cpu = 00:00:06 ; elapsed = 00:00:06 . Memory (MB): peak = 2031.375 ; gain = 530.406 ; free physical = 326 ; free virtual = 30474
----------------------------------------------------------------------------------
----------------------------------------------------------------------------------
-Finished Preparing Guide Design : Time (s): cpu = 00:00:06 ; elapsed = 00:00:06 . Memory (MB): peak = 2031.375 ; gain = 530.406 ; free physical = 326 ; free virtual = 30474
----------------------------------------------------------------------------------
 WARNING: [Synth 8-327] inferring latch for variable 'Sx_Addr_reg' [/home/edvinest/University/Architektura/proc_terv/proc_terv.srcs/sources_1/new/IFDEC.vhd:56]
 WARNING: [Synth 8-327] inferring latch for variable 'Sy_Addr_reg' [/home/edvinest/University/Architektura/proc_terv/proc_terv.srcs/sources_1/new/IFDEC.vhd:57]
 WARNING: [Synth 8-327] inferring latch for variable 'DMemAddr_dir_reg' [/home/edvinest/University/Architektura/proc_terv/proc_terv.srcs/sources_1/new/IFDEC.vhd:58]
@@ -300,18 +277,8 @@ WARNING: [Synth 8-327] inferring latch for variable 'AL_Instr_Ext_reg' [/home/ed
 WARNING: [Synth 8-327] inferring latch for variable 'KK_const_reg' [/home/edvinest/University/Architektura/proc_terv/proc_terv.srcs/sources_1/new/IFDEC.vhd:63]
 WARNING: [Synth 8-327] inferring latch for variable 'Instr_code_reg' [/home/edvinest/University/Architektura/proc_terv/proc_terv.srcs/sources_1/new/IFDEC.vhd:64]
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:08 ; elapsed = 00:00:07 . Memory (MB): peak = 2055.398 ; gain = 554.430 ; free physical = 287 ; free virtual = 30432
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:08 ; elapsed = 00:00:07 . Memory (MB): peak = 2054.457 ; gain = 525.453 ; free physical = 268 ; free virtual = 30825
 ---------------------------------------------------------------------------------
-
-
-Incremental Synthesis Report Summary:
-
-1. Incremental synthesis run: no
-
-   Reason for not running incremental synthesis : synth_design options have changed between reference and incremental
-
-
-INFO: [Synth 8-7130] Flow is switching to default flow due to incremental criteria not met. If you would like to alter this behaviour and have the flow terminate instead, please set the following parameter config_implementation {autoIncr.Synth.RejectBehavior Terminate}
 No constraint files found.
 ---------------------------------------------------------------------------------
 Start RTL Component Statistics 
@@ -323,8 +290,8 @@ Detailed RTL Component Info :
 	   2 Input   12 Bit       Adders := 1     
 	   2 Input   10 Bit       Adders := 2     
 	   2 Input    9 Bit       Adders := 2     
-	   3 Input    8 Bit       Adders := 1     
 	   4 Input    8 Bit       Adders := 2     
+	   3 Input    8 Bit       Adders := 1     
 	   2 Input    8 Bit       Adders := 1     
 	   4 Input    5 Bit       Adders := 1     
 	   3 Input    5 Bit       Adders := 1     
@@ -333,38 +300,42 @@ Detailed RTL Component Info :
 	   2 Input    2 Bit       Adders := 1     
 +---Registers : 
 	               17 Bit    Registers := 1     
-	               16 Bit    Registers := 86    
+	               16 Bit    Registers := 85    
 	               12 Bit    Registers := 33    
 	                5 Bit    Registers := 1     
 	                4 Bit    Registers := 2     
 	                3 Bit    Registers := 2     
 	                2 Bit    Registers := 1     
-	                1 Bit    Registers := 20    
+	                1 Bit    Registers := 18    
 +---Muxes : 
-	  20 Input   17 Bit        Muxes := 1     
-	   2 Input   17 Bit        Muxes := 1     
+	   2 Input   17 Bit        Muxes := 3     
+	  20 Input   17 Bit        Muxes := 2     
+	  11 Input   17 Bit        Muxes := 2     
+	   2 Input   16 Bit        Muxes := 1     
 	   2 Input   12 Bit        Muxes := 78    
-	   9 Input   12 Bit        Muxes := 1     
+	   3 Input   12 Bit        Muxes := 1     
 	   2 Input    8 Bit        Muxes := 1     
-	   9 Input    8 Bit        Muxes := 2     
+	   8 Input    8 Bit        Muxes := 2     
+	   8 Input    6 Bit        Muxes := 1     
 	   2 Input    6 Bit        Muxes := 1     
-	   9 Input    4 Bit        Muxes := 2     
+	   8 Input    4 Bit        Muxes := 2     
 	   2 Input    3 Bit        Muxes := 1     
 	  15 Input    3 Bit        Muxes := 1     
 	   2 Input    2 Bit        Muxes := 1     
 	  15 Input    2 Bit        Muxes := 8     
 	  25 Input    2 Bit        Muxes := 2     
-	  11 Input    2 Bit        Muxes := 1     
-	   2 Input    1 Bit        Muxes := 91    
+	   8 Input    2 Bit        Muxes := 1     
+	   2 Input    1 Bit        Muxes := 94    
+	   4 Input    1 Bit        Muxes := 3     
 	   7 Input    1 Bit        Muxes := 7     
-	   3 Input    1 Bit        Muxes := 10    
+	   3 Input    1 Bit        Muxes := 9     
 	  15 Input    1 Bit        Muxes := 8     
-	   4 Input    1 Bit        Muxes := 1     
 	   5 Input    1 Bit        Muxes := 3     
 	  25 Input    1 Bit        Muxes := 1     
-	  10 Input    1 Bit        Muxes := 7     
-	   9 Input    1 Bit        Muxes := 1     
-	  20 Input    1 Bit        Muxes := 1     
+	   9 Input    1 Bit        Muxes := 6     
+	   8 Input    1 Bit        Muxes := 1     
+	  20 Input    1 Bit        Muxes := 3     
+	  11 Input    1 Bit        Muxes := 3     
 ---------------------------------------------------------------------------------
 Finished RTL Component Statistics 
 ---------------------------------------------------------------------------------
@@ -386,90 +357,37 @@ WARNING: [Synth 8-7129] Port Al_Instr_Ext[3] in module ALU_0 is either unconnect
 WARNING: [Synth 8-7129] Port Al_Instr_Ext[2] in module ALU_0 is either unconnected or has no load
 WARNING: [Synth 8-7129] Port Al_Instr_Ext[1] in module ALU_0 is either unconnected or has no load
 WARNING: [Synth 8-7129] Port Al_Instr_Ext[0] in module ALU_0 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port DmemAddr_indir[5] in module DataMem_0 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port DmemAddr_indir[4] in module DataMem_0 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port DmemAddr_indir[3] in module DataMem_0 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port DmemAddr_indir[2] in module DataMem_0 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port DmemAddr_indir[1] in module DataMem_0 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port DmemAddr_indir[0] in module DataMem_0 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port ReadStrobe in module CPU is either unconnected or has no load
-WARNING: [Synth 8-7129] Port WriteStrobe in module CPU is either unconnected or has no load
+WARNING: [Synth 8-7129] Port DataoutY[15] in module DataMem_0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port DataoutY[14] in module DataMem_0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port DataoutY[13] in module DataMem_0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port DataoutY[12] in module DataMem_0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port DataoutY[11] in module DataMem_0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port DataoutY[10] in module DataMem_0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port DataoutY[9] in module DataMem_0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port DataoutY[8] in module DataMem_0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port DataoutY[7] in module DataMem_0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port DataoutY[6] in module DataMem_0 is either unconnected or has no load
 WARNING: [Synth 8-7129] Port Interrupt_acknowledge in module CPU is either unconnected or has no load
-WARNING: [Synth 8-7129] Port Interrupt_Address[11] in module CPU is either unconnected or has no load
-WARNING: [Synth 8-7129] Port Interrupt_Address[10] in module CPU is either unconnected or has no load
-WARNING: [Synth 8-7129] Port Interrupt_Address[9] in module CPU is either unconnected or has no load
-WARNING: [Synth 8-7129] Port Interrupt_Address[8] in module CPU is either unconnected or has no load
-WARNING: [Synth 8-7129] Port Interrupt_Address[7] in module CPU is either unconnected or has no load
-WARNING: [Synth 8-7129] Port Interrupt_Address[6] in module CPU is either unconnected or has no load
-WARNING: [Synth 8-7129] Port Interrupt_Address[5] in module CPU is either unconnected or has no load
-WARNING: [Synth 8-7129] Port Interrupt_Address[4] in module CPU is either unconnected or has no load
-WARNING: [Synth 8-7129] Port Interrupt_Address[3] in module CPU is either unconnected or has no load
-WARNING: [Synth 8-7129] Port Interrupt_Address[2] in module CPU is either unconnected or has no load
-WARNING: [Synth 8-7129] Port Interrupt_Address[1] in module CPU is either unconnected or has no load
-WARNING: [Synth 8-7129] Port Interrupt_Address[0] in module CPU is either unconnected or has no load
-WARNING: [Synth 8-3332] Sequential element (processzor/IfAndDec_inst/Sx_Addr_reg[3]) is unused and will be removed from module Top_Level.
-WARNING: [Synth 8-3332] Sequential element (processzor/IfAndDec_inst/Sx_Addr_reg[2]) is unused and will be removed from module Top_Level.
-WARNING: [Synth 8-3332] Sequential element (processzor/IfAndDec_inst/Sx_Addr_reg[1]) is unused and will be removed from module Top_Level.
-WARNING: [Synth 8-3332] Sequential element (processzor/IfAndDec_inst/Sx_Addr_reg[0]) is unused and will be removed from module Top_Level.
-WARNING: [Synth 8-3332] Sequential element (processzor/IfAndDec_inst/Sy_Addr_reg[3]) is unused and will be removed from module Top_Level.
-WARNING: [Synth 8-3332] Sequential element (processzor/IfAndDec_inst/Sy_Addr_reg[2]) is unused and will be removed from module Top_Level.
-WARNING: [Synth 8-3332] Sequential element (processzor/IfAndDec_inst/Sy_Addr_reg[1]) is unused and will be removed from module Top_Level.
-WARNING: [Synth 8-3332] Sequential element (processzor/IfAndDec_inst/Sy_Addr_reg[0]) is unused and will be removed from module Top_Level.
-WARNING: [Synth 8-3332] Sequential element (processzor/IfAndDec_inst/DMemAddr_dir_reg[5]) is unused and will be removed from module Top_Level.
-WARNING: [Synth 8-3332] Sequential element (processzor/IfAndDec_inst/DMemAddr_dir_reg[4]) is unused and will be removed from module Top_Level.
-WARNING: [Synth 8-3332] Sequential element (processzor/IfAndDec_inst/DMemAddr_dir_reg[3]) is unused and will be removed from module Top_Level.
-WARNING: [Synth 8-3332] Sequential element (processzor/IfAndDec_inst/DMemAddr_dir_reg[2]) is unused and will be removed from module Top_Level.
-WARNING: [Synth 8-3332] Sequential element (processzor/IfAndDec_inst/DMemAddr_dir_reg[1]) is unused and will be removed from module Top_Level.
-WARNING: [Synth 8-3332] Sequential element (processzor/IfAndDec_inst/DMemAddr_dir_reg[0]) is unused and will be removed from module Top_Level.
 WARNING: [Synth 8-3332] Sequential element (processzor/IfAndDec_inst/ENInterrupt_reg) is unused and will be removed from module Top_Level.
-WARNING: [Synth 8-3332] Sequential element (processzor/IfAndDec_inst/PortID_dir_reg[7]) is unused and will be removed from module Top_Level.
-WARNING: [Synth 8-3332] Sequential element (processzor/IfAndDec_inst/PortID_dir_reg[6]) is unused and will be removed from module Top_Level.
-WARNING: [Synth 8-3332] Sequential element (processzor/IfAndDec_inst/PortID_dir_reg[5]) is unused and will be removed from module Top_Level.
-WARNING: [Synth 8-3332] Sequential element (processzor/IfAndDec_inst/PortID_dir_reg[4]) is unused and will be removed from module Top_Level.
-WARNING: [Synth 8-3332] Sequential element (processzor/IfAndDec_inst/PortID_dir_reg[3]) is unused and will be removed from module Top_Level.
-WARNING: [Synth 8-3332] Sequential element (processzor/IfAndDec_inst/PortID_dir_reg[2]) is unused and will be removed from module Top_Level.
-WARNING: [Synth 8-3332] Sequential element (processzor/IfAndDec_inst/PortID_dir_reg[1]) is unused and will be removed from module Top_Level.
-WARNING: [Synth 8-3332] Sequential element (processzor/IfAndDec_inst/PortID_dir_reg[0]) is unused and will be removed from module Top_Level.
-WARNING: [Synth 8-3332] Sequential element (processzor/IfAndDec_inst/Branch_Addr_reg[11]) is unused and will be removed from module Top_Level.
-WARNING: [Synth 8-3332] Sequential element (processzor/IfAndDec_inst/Branch_Addr_reg[10]) is unused and will be removed from module Top_Level.
-WARNING: [Synth 8-3332] Sequential element (processzor/IfAndDec_inst/Branch_Addr_reg[9]) is unused and will be removed from module Top_Level.
-WARNING: [Synth 8-3332] Sequential element (processzor/IfAndDec_inst/Branch_Addr_reg[8]) is unused and will be removed from module Top_Level.
-WARNING: [Synth 8-3332] Sequential element (processzor/IfAndDec_inst/Branch_Addr_reg[7]) is unused and will be removed from module Top_Level.
-WARNING: [Synth 8-3332] Sequential element (processzor/IfAndDec_inst/Branch_Addr_reg[6]) is unused and will be removed from module Top_Level.
-WARNING: [Synth 8-3332] Sequential element (processzor/IfAndDec_inst/Branch_Addr_reg[5]) is unused and will be removed from module Top_Level.
-WARNING: [Synth 8-3332] Sequential element (processzor/IfAndDec_inst/Branch_Addr_reg[4]) is unused and will be removed from module Top_Level.
-WARNING: [Synth 8-3332] Sequential element (processzor/IfAndDec_inst/Branch_Addr_reg[3]) is unused and will be removed from module Top_Level.
-WARNING: [Synth 8-3332] Sequential element (processzor/IfAndDec_inst/Branch_Addr_reg[2]) is unused and will be removed from module Top_Level.
-WARNING: [Synth 8-3332] Sequential element (processzor/IfAndDec_inst/Branch_Addr_reg[1]) is unused and will be removed from module Top_Level.
-WARNING: [Synth 8-3332] Sequential element (processzor/IfAndDec_inst/Branch_Addr_reg[0]) is unused and will be removed from module Top_Level.
 WARNING: [Synth 8-3332] Sequential element (processzor/IfAndDec_inst/AL_Instr_Ext_reg[3]) is unused and will be removed from module Top_Level.
 WARNING: [Synth 8-3332] Sequential element (processzor/IfAndDec_inst/AL_Instr_Ext_reg[2]) is unused and will be removed from module Top_Level.
 WARNING: [Synth 8-3332] Sequential element (processzor/IfAndDec_inst/AL_Instr_Ext_reg[1]) is unused and will be removed from module Top_Level.
 WARNING: [Synth 8-3332] Sequential element (processzor/IfAndDec_inst/AL_Instr_Ext_reg[0]) is unused and will be removed from module Top_Level.
-WARNING: [Synth 8-3332] Sequential element (processzor/IfAndDec_inst/KK_const_reg[7]) is unused and will be removed from module Top_Level.
-WARNING: [Synth 8-3332] Sequential element (processzor/IfAndDec_inst/KK_const_reg[6]) is unused and will be removed from module Top_Level.
-WARNING: [Synth 8-3332] Sequential element (processzor/IfAndDec_inst/KK_const_reg[5]) is unused and will be removed from module Top_Level.
-WARNING: [Synth 8-3332] Sequential element (processzor/IfAndDec_inst/KK_const_reg[4]) is unused and will be removed from module Top_Level.
-WARNING: [Synth 8-3332] Sequential element (processzor/IfAndDec_inst/KK_const_reg[3]) is unused and will be removed from module Top_Level.
-WARNING: [Synth 8-3332] Sequential element (processzor/IfAndDec_inst/KK_const_reg[2]) is unused and will be removed from module Top_Level.
-WARNING: [Synth 8-3332] Sequential element (processzor/IfAndDec_inst/KK_const_reg[1]) is unused and will be removed from module Top_Level.
-WARNING: [Synth 8-3332] Sequential element (processzor/IfAndDec_inst/KK_const_reg[0]) is unused and will be removed from module Top_Level.
-WARNING: [Synth 8-3332] Sequential element (processzor/IfAndDec_inst/Instr_code_reg[5]) is unused and will be removed from module Top_Level.
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:12 ; elapsed = 00:00:11 . Memory (MB): peak = 2169.867 ; gain = 668.898 ; free physical = 211 ; free virtual = 30362
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:22 ; elapsed = 00:00:21 . Memory (MB): peak = 2254.957 ; gain = 725.953 ; free physical = 193 ; free virtual = 30612
 ---------------------------------------------------------------------------------
 No constraint files found.
 ---------------------------------------------------------------------------------
 Start Timing Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:00:12 ; elapsed = 00:00:11 . Memory (MB): peak = 2169.867 ; gain = 668.898 ; free physical = 211 ; free virtual = 30362
+Finished Timing Optimization : Time (s): cpu = 00:00:22 ; elapsed = 00:00:22 . Memory (MB): peak = 2254.957 ; gain = 725.953 ; free physical = 193 ; free virtual = 30613
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Technology Mapping
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:00:12 ; elapsed = 00:00:11 . Memory (MB): peak = 2169.867 ; gain = 668.898 ; free physical = 211 ; free virtual = 30362
+Finished Technology Mapping : Time (s): cpu = 00:00:23 ; elapsed = 00:00:22 . Memory (MB): peak = 2254.957 ; gain = 725.953 ; free physical = 193 ; free virtual = 30613
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start IO Insertion
@@ -487,37 +405,37 @@ Start Final Netlist Cleanup
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:00:16 ; elapsed = 00:00:15 . Memory (MB): peak = 2169.867 ; gain = 668.898 ; free physical = 219 ; free virtual = 30371
+Finished IO Insertion : Time (s): cpu = 00:00:26 ; elapsed = 00:00:26 . Memory (MB): peak = 2254.957 ; gain = 725.953 ; free physical = 193 ; free virtual = 30613
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:00:16 ; elapsed = 00:00:15 . Memory (MB): peak = 2169.867 ; gain = 668.898 ; free physical = 219 ; free virtual = 30371
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:26 ; elapsed = 00:00:26 . Memory (MB): peak = 2254.957 ; gain = 725.953 ; free physical = 193 ; free virtual = 30613
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:16 ; elapsed = 00:00:15 . Memory (MB): peak = 2169.867 ; gain = 668.898 ; free physical = 219 ; free virtual = 30371
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:26 ; elapsed = 00:00:26 . Memory (MB): peak = 2254.957 ; gain = 725.953 ; free physical = 193 ; free virtual = 30613
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:00:16 ; elapsed = 00:00:15 . Memory (MB): peak = 2169.867 ; gain = 668.898 ; free physical = 219 ; free virtual = 30371
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:26 ; elapsed = 00:00:26 . Memory (MB): peak = 2254.957 ; gain = 725.953 ; free physical = 193 ; free virtual = 30613
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:16 ; elapsed = 00:00:15 . Memory (MB): peak = 2169.867 ; gain = 668.898 ; free physical = 219 ; free virtual = 30371
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:27 ; elapsed = 00:00:26 . Memory (MB): peak = 2254.957 ; gain = 725.953 ; free physical = 193 ; free virtual = 30613
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:00:16 ; elapsed = 00:00:15 . Memory (MB): peak = 2169.867 ; gain = 668.898 ; free physical = 219 ; free virtual = 30371
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:27 ; elapsed = 00:00:26 . Memory (MB): peak = 2254.957 ; gain = 725.953 ; free physical = 193 ; free virtual = 30613
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Writing Synthesis Report
@@ -530,40 +448,67 @@ Report BlackBoxes:
 +-+--------------+----------+
 
 Report Cell Usage: 
-+------+-----+------+
-|      |Cell |Count |
-+------+-----+------+
-|1     |OBUF |     4|
-+------+-----+------+
++------+---------+------+
+|      |Cell     |Count |
++------+---------+------+
+|1     |BUFG     |     1|
+|2     |CARRY4   |    49|
+|3     |LUT1     |    15|
+|4     |LUT2     |   151|
+|5     |LUT3     |    44|
+|6     |LUT4     |   112|
+|7     |LUT5     |   520|
+|8     |LUT6     |   948|
+|9     |MUXF7    |   165|
+|10    |MUXF8    |    81|
+|11    |RAMB36E1 |     1|
+|12    |FDCE     |   432|
+|13    |FDPE     |     1|
+|14    |FDRE     |  1354|
+|15    |LDC      |    48|
+|16    |IBUF     |     6|
+|17    |OBUF     |     4|
++------+---------+------+
 
 Report Instance Areas: 
-+------+---------+-------+------+
-|      |Instance |Module |Cells |
-+------+---------+-------+------+
-|1     |top      |       |     4|
-+------+---------+-------+------+
++------+-----------------------+------------+------+
+|      |Instance               |Module      |Cells |
++------+-----------------------+------------+------+
+|1     |top                    |            |  3932|
+|2     |  mem                  |memoria     |    56|
+|3     |  processzor           |CPU         |  3857|
+|4     |    ALU_inst           |ALU_0       |    87|
+|5     |    DataMemory_inst    |DataMem_0   |  1474|
+|6     |    IfAndDec_inst      |IFDEC       |   305|
+|7     |    PFC_inst           |PFC         |  1120|
+|8     |    PortLogic_inst     |PortLogic_0 |    15|
+|9     |    RegisterBlock_inst |RegBlock    |   848|
++------+-----------------------+------------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:00:16 ; elapsed = 00:00:15 . Memory (MB): peak = 2169.867 ; gain = 668.898 ; free physical = 219 ; free virtual = 30371
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:27 ; elapsed = 00:00:26 . Memory (MB): peak = 2254.957 ; gain = 725.953 ; free physical = 193 ; free virtual = 30613
 ---------------------------------------------------------------------------------
-Synthesis finished with 0 errors, 0 critical warnings and 120 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:00:16 ; elapsed = 00:00:15 . Memory (MB): peak = 2169.867 ; gain = 668.898 ; free physical = 219 ; free virtual = 30371
-Synthesis Optimization Complete : Time (s): cpu = 00:00:16 ; elapsed = 00:00:15 . Memory (MB): peak = 2169.875 ; gain = 668.898 ; free physical = 219 ; free virtual = 30371
+Synthesis finished with 0 errors, 0 critical warnings and 52 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:27 ; elapsed = 00:00:26 . Memory (MB): peak = 2254.957 ; gain = 725.953 ; free physical = 193 ; free virtual = 30613
+Synthesis Optimization Complete : Time (s): cpu = 00:00:27 ; elapsed = 00:00:26 . Memory (MB): peak = 2254.965 ; gain = 725.953 ; free physical = 193 ; free virtual = 30613
 INFO: [Project 1-571] Translating synthesized netlist
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2175.805 ; gain = 0.000 ; free physical = 458 ; free virtual = 30610
+Netlist sorting complete. Time (s): cpu = 00:00:00.02 ; elapsed = 00:00:00.03 . Memory (MB): peak = 2254.965 ; gain = 0.000 ; free physical = 473 ; free virtual = 30893
+INFO: [Netlist 29-17] Analyzing 344 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
 INFO: [Project 1-570] Preparing netlist for logic optimization
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2258.492 ; gain = 0.000 ; free physical = 423 ; free virtual = 30576
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2337.797 ; gain = 0.000 ; free physical = 451 ; free virtual = 30882
 INFO: [Project 1-111] Unisim Transformation Summary:
-No Unisim elements were transformed.
+  A total of 48 instances were transformed.
+  LDC => LDCE: 48 instances
 
-Synth Design complete | Checksum: 4d179218
+Synth Design complete | Checksum: 17000302
 INFO: [Common 17-83] Releasing license: Synthesis
-44 Infos, 120 Warnings, 0 Critical Warnings and 0 Errors encountered.
+46 Infos, 52 Warnings, 0 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:00:20 ; elapsed = 00:00:17 . Memory (MB): peak = 2258.527 ; gain = 766.465 ; free physical = 422 ; free virtual = 30575
-INFO: [Common 17-2834] synth_design peak Physical Memory [PSS] (MB): overall = 1599.909; main = 1369.492; forked = 376.809
-INFO: [Common 17-2834] synth_design peak Virtual Memory [VSS] (MB): overall = 3785.840; main = 2258.496; forked = 1615.969
-Write ShapeDB Complete: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2282.504 ; gain = 0.000 ; free physical = 422 ; free virtual = 30575
+synth_design: Time (s): cpu = 00:00:31 ; elapsed = 00:00:29 . Memory (MB): peak = 2337.832 ; gain = 808.828 ; free physical = 451 ; free virtual = 30882
+INFO: [Common 17-2834] synth_design peak Physical Memory [PSS] (MB): overall = 1693.977; main = 1398.021; forked = 376.398
+INFO: [Common 17-2834] synth_design peak Virtual Memory [VSS] (MB): overall = 3870.957; main = 2337.801; forked = 1615.996
+Write ShapeDB Complete: Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00.01 . Memory (MB): peak = 2361.809 ; gain = 0.000 ; free physical = 451 ; free virtual = 30882
 INFO: [Common 17-1381] The checkpoint '/home/edvinest/University/Architektura/proc_terv/proc_terv.runs/synth_1/Top_Level.dcp' has been generated.
 INFO: [runtcl-4] Executing : report_utilization -file Top_Level_utilization_synth.rpt -pb Top_Level_utilization_synth.pb
-INFO: [Common 17-206] Exiting Vivado at Wed Nov 20 16:36:53 2024...
+INFO: [Common 17-206] Exiting Vivado at Tue Dec  3 09:16:24 2024...

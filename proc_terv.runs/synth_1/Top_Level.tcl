@@ -95,7 +95,7 @@ read_vhdl -library xil_defaultlib {
   /home/edvinest/University/Architektura/proc_terv/proc_terv.srcs/sources_1/imports/Downloads/PFC.vhd
   /home/edvinest/University/Architektura/proc_terv/proc_terv.srcs/sources_1/new/PortLogic_0.vhd
   /home/edvinest/University/Architektura/proc_terv/proc_terv.srcs/sources_1/new/RegBlock.vhd
-  /home/edvinest/University/Architektura/proc_terv/proc_terv.srcs/sources_1/imports/Downloads/memoria.vhd
+  /home/edvinest/University/Architektura/lab_2/lab_2.srcs/sources_1/imports/Downloads/memoria.vhd
   /home/edvinest/University/Architektura/proc_terv/proc_terv.srcs/sources_1/new/Top_Level.vhd
 }
 OPTRACE "Adding files" END { }

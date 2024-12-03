@@ -38,8 +38,8 @@ entity DataMem_0 is
     Port ( clk : in STD_LOGIC;
            Reset : in STD_LOGIC;
            DataoutX : in STD_LOGIC_VECTOR (15 downto 0);
-           DmemAddr_dir : in STD_LOGIC_VECTOR (5 downto 0);
-           DmemAddr_indir : in STD_LOGIC_VECTOR (5 downto 0);
+           DataoutY : in STD_LOGIC_VECTOR (15 downto 0);
+           DMemAddr_dir : in STD_LOGIC_VECTOR (5 downto 0);
            SelAddr : in STD_LOGIC;
            MR : in STD_LOGIC;
            MW : in STD_LOGIC;
@@ -53,8 +53,8 @@ type Tomb is array (0 to 63) of std_logic_vector(15 downto 0);
 
 begin
 
-DMemAddr <= conv_integer(DMemAddr_Dir)
-when SelAddr = '0' else conv_integer(DataOutX);
+DMemAddr <= conv_integer(DMemAddr_dir)
+when SelAddr = '0' else conv_integer(DataoutY(5 downto 0));
 
 process(clk, Reset, MR, MW)
     variable Tarolo: Tomb := (others => (others => '0'));

@@ -42,7 +42,7 @@ component DataMem_0 is
            Reset : in STD_LOGIC;
            DataoutX : in STD_LOGIC_VECTOR (15 downto 0);
            DmemAddr_dir : in STD_LOGIC_VECTOR (5 downto 0);
-           DmemAddr_indir : in STD_LOGIC_VECTOR (5 downto 0);
+           DataoutY : in STD_LOGIC_VECTOR (15 downto 0);
            SelAddr : in STD_LOGIC;
            MR : in STD_LOGIC;
            MW : in STD_LOGIC;
@@ -53,7 +53,7 @@ signal clk : std_logic := '0';
 signal reset : std_logic := '0';
 signal DataoutX : std_logic_vector (15 downto 0) := (others => '0');
 signal DmemAddr_dir : std_logic_vector (5 downto 0) := (others => '0');
-signal DmemAddr_indir : std_logic_vector (5 downto 0) := (others => '0');
+signal DataoutY : std_logic_vector (15 downto 0) := (others => '0');
 signal SelAddr : std_logic := '0';
 signal MR : std_logic := '0';
 signal MW : std_logic := '0';
@@ -76,7 +76,7 @@ uut: DataMem_0 PORT MAP(
            Reset => reset,
            DataoutX => DataoutX,
            DmemAddr_dir => DmemAddr_dir,
-           DmemAddr_indir => DmemAddr_indir,
+           DataoutY => DataoutY,
            SelAddr => SelAddr,
            MR => MR,
            MW => MW,

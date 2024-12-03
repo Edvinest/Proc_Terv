@@ -21,6 +21,8 @@
 
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
+use IEEE.std_logic_arith.all;
+use IEEE.std_logic_unsigned.all;
 
 -- Uncomment the following library declaration if using
 -- arithmetic functions with Signed or Unsigned values
@@ -42,7 +44,7 @@ entity CPU is
            ReadStrobe : out STD_LOGIC;
            WriteStrobe : out STD_LOGIC;
            Interrupt_acknowledge : out STD_LOGIC;
-           Interrupt_Address : out STD_LOGIC_VECTOR (11 downto 0));
+           Instruction_Address : out STD_LOGIC_VECTOR (11 downto 0));
 end CPU;
 
 architecture Behavioral of CPU is
@@ -62,8 +64,8 @@ component DataMem_0
     Port ( clk : in STD_LOGIC;
            Reset : in STD_LOGIC;
            DataoutX : in STD_LOGIC_VECTOR (15 downto 0);
-           DmemAddr_dir : in STD_LOGIC_VECTOR (5 downto 0);
-           DmemAddr_indir : in STD_LOGIC_VECTOR (5 downto 0);
+           DataoutY : in STD_LOGIC_VECTOR (15 downto 0);
+           DMemAddr_dir : in STD_LOGIC_VECTOR (5 downto 0);
            SelAddr : in STD_LOGIC;
            MR : in STD_LOGIC;
            MW : in STD_LOGIC;
@@ -153,6 +155,7 @@ end component;
     signal SxAddr           : STD_LOGIC_VECTOR(3 downto 0);
     signal SyAddr           : STD_LOGIC_VECTOR(3 downto 0);
     signal RW               : STD_LOGIC;
+    signal Data_In          : STD_LOGIC_VECTOR(15 downto 0);
     signal Data_Out_x       : STD_LOGIC_VECTOR(15 downto 0);
     signal Data_Out_y       : STD_LOGIC_VECTOR(15 downto 0);
     signal PortID_dir       : STD_LOGIC_VECTOR(7 downto 0);
@@ -160,9 +163,8 @@ end component;
     signal PortID_sel       : STD_LOGIC;
     signal IORD             : STD_LOGIC;
     signal IOWR             : STD_LOGIC;
-    signal DataOutX         : STD_LOGIC_VECTOR(15 downto 0);
-    signal Rd_strobe        : STD_LOGIC;
-    signal Wr_strobe        : STD_LOGIC;
+    signal MRd              : STD_LOGIC;
+    signal MWr              : STD_LOGIC;
     signal PortIntoCPU      : STD_LOGIC_VECTOR(15 downto 0);
     signal Instr_code       : STD_LOGIC_VECTOR(5 downto 0);
     signal Branch_addr      : STD_LOGIC_VECTOR(11 downto 0);
@@ -176,7 +178,6 @@ end component;
     signal Sel_Addr         : STD_LOGIC;
     signal KK_const         : STD_LOGIC_VECTOR(7 downto 0);
     signal DMemAddr_dir     : STD_LOGIC_VECTOR(5 downto 0);
-    signal Instr_addr       : STD_LOGIC_VECTOR(11 downto 0);
     signal DataMemOut       : STD_LOGIC_VECTOR(15 downto 0);
     signal AL_Instr_Ext     : STD_LOGIC_VECTOR(3 downto 0);
     signal ALU_Result       : STD_LOGIC_VECTOR(15 downto 0);
@@ -189,7 +190,7 @@ begin
         port map (
             Clk => clk,
             Reset => Reset,
-            Dataxin => PortDataIn,
+            Dataxin => Data_in,
             SX_addr => SxAddr,
             SY_addr => SyAddr,
             RW => RW,
@@ -208,11 +209,11 @@ begin
             PortID_sel => PortID_sel,
             IORD => IORD,
             IOWR => IOWR,
-            DataOutX => DataOutX,
+            DataOutX => Data_Out_x,
             PortID => PortID,
             PortDataOut => PortDataOut,
-            Rd_strobe => Rd_strobe,
-            Wr_strobe => Wr_strobe,
+            Rd_strobe => ReadStrobe,
+            Wr_strobe => WriteStrobe,
             PortIntoCPU => PortIntoCPU
         );
 
@@ -223,7 +224,7 @@ begin
             reset => Reset,
             Instr_code => Instr_code,
             Branch_addr => Branch_addr,
-            Int_req => interrupt,
+            Int_req => Interrupt,
             Carry => Carry,
             Zero => Zero,
             En_Intr => En_Intr,
@@ -234,11 +235,11 @@ begin
             Sel_Addr => Sel_Addr,
             PortId_Sel => PortID_sel,
             RW => RW,
-            Mrd => IORD,
-            Mwr => IOWR,
+            Mrd => MRd,
+            Mwr => MWr,
             IOrd => IORD,
             IOwr => IOWR,
-            Instr_addr => Instr_addr
+            Instr_addr => Instruction_Address
         );
 
     -- Mux instance
@@ -250,7 +251,7 @@ Mux_inst: DxInMux
         ALUresult => ALU_Result,
         KK_const => KK_const,
         Dy => Data_Out_y,
-        Dataxin => PortDataOut
+        Dataxin => Data_In
     );
 
     -- IfAndDec instance
@@ -276,11 +277,11 @@ DataMemory_inst: DataMem_0
         clk => clk,
         Reset => Reset,
         DataoutX => Data_Out_x,
-        DmemAddr_dir => DMemAddr_dir,
-        DmemAddr_indir => DMemAddr_dir,
+        DataoutY => Data_out_y,
+        DMemAddr_dir => DMemAddr_dir,
         SelAddr => Sel_Addr,
-        MR => IORD,
-        MW => IOWR,
+        MR => MRd,
+        MW => MWr,
         DataMemOut => DataMemOut
     );
 

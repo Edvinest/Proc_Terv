@@ -1,0 +1,178 @@
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
+---------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2023.2.2 (lin64) Build 4126759 Thu Feb  8 23:52:05 MST 2024
+| Date         : Mon Dec  9 17:42:13 2024
+| Host         : antigamer-pc running 64-bit Nobara Linux 40 (KDE Plasma)
+| Command      : report_control_sets -verbose -file Top_Level_control_sets_placed.rpt
+| Design       : Top_Level
+| Device       : xc7z020
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+Control Set Information
+
+Table of Contents
+-----------------
+1. Summary
+2. Histogram
+3. Flip-Flop Distribution
+4. Detailed Control Set Information
+
+1. Summary
+----------
+
++----------------------------------------------------------+-------+
+|                          Status                          | Count |
++----------------------------------------------------------+-------+
+| Total control sets                                       |   100 |
+|    Minimum number of control sets                        |   100 |
+|    Addition due to synthesis replication                 |     0 |
+|    Addition due to physical synthesis replication        |     0 |
+| Unused register locations in slices containing registers |    53 |
++----------------------------------------------------------+-------+
+* Control sets can be merged at opt_design using control_set_merge or merge_equivalent_drivers
+** Run report_qor_suggestions for automated merging and remapping suggestions
+
+
+2. Histogram
+------------
+
++--------------------+-------+
+|       Fanout       | Count |
++--------------------+-------+
+| Total control sets |   100 |
+| >= 0 to < 4        |     1 |
+| >= 4 to < 6        |     6 |
+| >= 6 to < 8        |     3 |
+| >= 8 to < 10       |     4 |
+| >= 10 to < 12      |     0 |
+| >= 12 to < 14      |     1 |
+| >= 14 to < 16      |     0 |
+| >= 16              |    85 |
++--------------------+-------+
+* Control sets can be remapped at either synth_design or opt_design
+
+
+3. Flip-Flop Distribution
+-------------------------
+
++--------------+-----------------------+------------------------+-----------------+--------------+
+| Clock Enable | Synchronous Set/Reset | Asynchronous Set/Reset | Total Registers | Total Slices |
++--------------+-----------------------+------------------------+-----------------+--------------+
+| No           | No                    | No                     |               2 |            2 |
+| No           | No                    | Yes                    |              24 |           14 |
+| No           | Yes                   | No                     |              48 |           15 |
+| Yes          | No                    | No                     |              40 |           32 |
+| Yes          | No                    | Yes                    |             409 |          168 |
+| Yes          | Yes                   | No                     |            1312 |          478 |
++--------------+-----------------------+------------------------+-----------------+--------------+
+
+
+4. Detailed Control Set Information
+-----------------------------------
+
++-------------------------------------------+-----------------------------------------------------+------------------+------------------+----------------+--------------+
+|                Clock Signal               |                    Enable Signal                    | Set/Reset Signal | Slice Load Count | Bel Load Count | Bels / Slice |
++-------------------------------------------+-----------------------------------------------------+------------------+------------------+----------------+--------------+
+| ~clk_IBUF_BUFG                            |                                                     |                  |                2 |              2 |         1.00 |
+| ~clk_IBUF_BUFG                            | processzor/PFC_inst/IOrd_reg_0[0]                   | reset_IBUF       |                1 |              4 |         4.00 |
+| ~clk_IBUF_BUFG                            | processzor/PFC_inst/IOwr_reg_0[0]                   | reset_IBUF       |                1 |              4 |         4.00 |
+|  processzor/PFC_inst/phasenum_reg[1]_5[0] |                                                     | reset_IBUF       |                1 |              4 |         4.00 |
+|  processzor/PFC_inst/phasenum_reg[1]_6[0] |                                                     | reset_IBUF       |                1 |              4 |         4.00 |
+|  clk_IBUF_BUFG                            | processzor/IfAndDec_inst/Rd_strobe_reg[0]           |                  |                1 |              4 |         4.00 |
+|  clk_IBUF_BUFG                            | processzor/IfAndDec_inst/Wr_strobe_reg[0]           |                  |                1 |              4 |         4.00 |
+|  processzor/PFC_inst/phasenum_reg[1]_4[0] |                                                     | reset_IBUF       |                3 |              6 |         2.00 |
+|  processzor/PFC_inst/phasenum_reg[1]_0[0] |                                                     | reset_IBUF       |                2 |              6 |         3.00 |
+| ~clk_IBUF_BUFG                            |                                                     | reset_IBUF       |                3 |              7 |         2.33 |
+|  processzor/PFC_inst/phasenum_reg[1]_1[0] |                                                     | reset_IBUF       |                3 |              8 |         2.67 |
+| ~clk_IBUF_BUFG                            | processzor/IfAndDec_inst/Result[15]_i_3_0[1]        |                  |                7 |              8 |         1.14 |
+| ~clk_IBUF_BUFG                            | processzor/IfAndDec_inst/Result[15]_i_3_0[0]        |                  |                8 |              8 |         1.00 |
+|  processzor/PFC_inst/phasenum_reg[1]_3[0] |                                                     | reset_IBUF       |                2 |              8 |         4.00 |
+|  processzor/PFC_inst/phasenum_reg[1]_2[0] |                                                     | reset_IBUF       |                3 |             12 |         4.00 |
+| ~clk_IBUF_BUFG                            | processzor/RegisterBlock_inst/DataoutY_reg[5]_1[0]  | reset_IBUF       |                6 |             16 |         2.67 |
+| ~clk_IBUF_BUFG                            | processzor/RegisterBlock_inst/DataoutY_reg[3]_1[0]  | reset_IBUF       |                4 |             16 |         4.00 |
+| ~clk_IBUF_BUFG                            | processzor/RegisterBlock_inst/DataoutY_reg[3]_2[0]  | reset_IBUF       |                7 |             16 |         2.29 |
+| ~clk_IBUF_BUFG                            | processzor/RegisterBlock_inst/DataoutY_reg[1]_10[0] | reset_IBUF       |                5 |             16 |         3.20 |
+| ~clk_IBUF_BUFG                            | processzor/RegisterBlock_inst/DataoutY_reg[3]_3[0]  | reset_IBUF       |                5 |             16 |         3.20 |
+| ~clk_IBUF_BUFG                            | processzor/RegisterBlock_inst/DataoutY_reg[3]_4[0]  | reset_IBUF       |                5 |             16 |         3.20 |
+| ~clk_IBUF_BUFG                            | processzor/RegisterBlock_inst/DataoutY_reg[4]_1[0]  | reset_IBUF       |                6 |             16 |         2.67 |
+| ~clk_IBUF_BUFG                            | processzor/RegisterBlock_inst/DataoutY_reg[4]_2[0]  | reset_IBUF       |                4 |             16 |         4.00 |
+| ~clk_IBUF_BUFG                            | processzor/RegisterBlock_inst/DataoutY_reg[4]_3[0]  | reset_IBUF       |                5 |             16 |         3.20 |
+| ~clk_IBUF_BUFG                            | processzor/RegisterBlock_inst/DataoutY_reg[4]_4[0]  | reset_IBUF       |                7 |             16 |         2.29 |
+| ~clk_IBUF_BUFG                            | processzor/RegisterBlock_inst/DataoutY_reg[1]_9[0]  | reset_IBUF       |                5 |             16 |         3.20 |
+| ~clk_IBUF_BUFG                            | processzor/RegisterBlock_inst/DataoutY_reg[5]_2[0]  | reset_IBUF       |                9 |             16 |         1.78 |
+| ~clk_IBUF_BUFG                            | processzor/RegisterBlock_inst/Mrd_reg_0[0]          | reset_IBUF       |                7 |             16 |         2.29 |
+| ~clk_IBUF_BUFG                            | processzor/RegisterBlock_inst/Mrd_reg_1[0]          | reset_IBUF       |                6 |             16 |         2.67 |
+| ~clk_IBUF_BUFG                            | processzor/RegisterBlock_inst/Mwr_reg[0]            | reset_IBUF       |                6 |             16 |         2.67 |
+| ~clk_IBUF_BUFG                            | processzor/RegisterBlock_inst/Mwr_reg_0[0]          | reset_IBUF       |                5 |             16 |         3.20 |
+| ~clk_IBUF_BUFG                            | processzor/RegisterBlock_inst/Mwr_reg_1[0]          | reset_IBUF       |                5 |             16 |         3.20 |
+| ~clk_IBUF_BUFG                            | processzor/PFC_inst/RW_reg_inv_0[0]                 |                  |               15 |             16 |         1.07 |
+| ~clk_IBUF_BUFG                            | processzor/PFC_inst/Mrd_reg_2[0]                    | reset_IBUF       |               12 |             16 |         1.33 |
+| ~clk_IBUF_BUFG                            | processzor/RegisterBlock_inst/DataoutY_reg[1]_1[0]  | reset_IBUF       |                5 |             16 |         3.20 |
+| ~clk_IBUF_BUFG                            | processzor/RegisterBlock_inst/DataoutY_reg[1]_22[0] | reset_IBUF       |                4 |             16 |         4.00 |
+| ~clk_IBUF_BUFG                            | processzor/RegisterBlock_inst/DataoutY_reg[1]_13[0] | reset_IBUF       |                8 |             16 |         2.00 |
+| ~clk_IBUF_BUFG                            | processzor/RegisterBlock_inst/DataoutY_reg[1]_14[0] | reset_IBUF       |                6 |             16 |         2.67 |
+| ~clk_IBUF_BUFG                            | processzor/RegisterBlock_inst/DataoutY_reg[1]_15[0] | reset_IBUF       |                4 |             16 |         4.00 |
+| ~clk_IBUF_BUFG                            | processzor/RegisterBlock_inst/DataoutY_reg[1]_16[0] | reset_IBUF       |                3 |             16 |         5.33 |
+| ~clk_IBUF_BUFG                            | processzor/RegisterBlock_inst/DataoutY_reg[1]_17[0] | reset_IBUF       |                5 |             16 |         3.20 |
+| ~clk_IBUF_BUFG                            | processzor/RegisterBlock_inst/DataoutY_reg[1]_18[0] | reset_IBUF       |                4 |             16 |         4.00 |
+| ~clk_IBUF_BUFG                            | processzor/RegisterBlock_inst/DataoutY_reg[1]_19[0] | reset_IBUF       |                6 |             16 |         2.67 |
+| ~clk_IBUF_BUFG                            | processzor/RegisterBlock_inst/DataoutY_reg[1]_2[0]  | reset_IBUF       |                6 |             16 |         2.67 |
+| ~clk_IBUF_BUFG                            | processzor/RegisterBlock_inst/DataoutY_reg[1]_20[0] | reset_IBUF       |                7 |             16 |         2.29 |
+| ~clk_IBUF_BUFG                            | processzor/RegisterBlock_inst/DataoutY_reg[1]_21[0] | reset_IBUF       |                6 |             16 |         2.67 |
+| ~clk_IBUF_BUFG                            | processzor/RegisterBlock_inst/DataoutY_reg[1]_12[0] | reset_IBUF       |                4 |             16 |         4.00 |
+| ~clk_IBUF_BUFG                            | processzor/RegisterBlock_inst/DataoutY_reg[1]_23[0] | reset_IBUF       |                6 |             16 |         2.67 |
+| ~clk_IBUF_BUFG                            | processzor/RegisterBlock_inst/DataoutY_reg[1]_24[0] | reset_IBUF       |                5 |             16 |         3.20 |
+| ~clk_IBUF_BUFG                            | processzor/RegisterBlock_inst/DataoutY_reg[1]_25[0] | reset_IBUF       |                5 |             16 |         3.20 |
+| ~clk_IBUF_BUFG                            | processzor/RegisterBlock_inst/DataoutY_reg[1]_26[0] | reset_IBUF       |                4 |             16 |         4.00 |
+| ~clk_IBUF_BUFG                            | processzor/RegisterBlock_inst/DataoutY_reg[1]_3[0]  | reset_IBUF       |                7 |             16 |         2.29 |
+| ~clk_IBUF_BUFG                            | processzor/RegisterBlock_inst/DataoutY_reg[1]_4[0]  | reset_IBUF       |                3 |             16 |         5.33 |
+| ~clk_IBUF_BUFG                            | processzor/RegisterBlock_inst/DataoutY_reg[1]_5[0]  | reset_IBUF       |                6 |             16 |         2.67 |
+| ~clk_IBUF_BUFG                            | processzor/RegisterBlock_inst/DataoutY_reg[1]_6[0]  | reset_IBUF       |                6 |             16 |         2.67 |
+| ~clk_IBUF_BUFG                            | processzor/RegisterBlock_inst/DataoutY_reg[1]_7[0]  | reset_IBUF       |                3 |             16 |         5.33 |
+| ~clk_IBUF_BUFG                            | processzor/RegisterBlock_inst/DataoutY_reg[1]_8[0]  | reset_IBUF       |                6 |             16 |         2.67 |
+| ~clk_IBUF_BUFG                            | processzor/IfAndDec_inst/Mwr_reg[0]                 | reset_IBUF       |                6 |             16 |         2.67 |
+| ~clk_IBUF_BUFG                            | processzor/IfAndDec_inst/RW_reg_inv_4[0]            | reset_IBUF       |                8 |             16 |         2.00 |
+| ~clk_IBUF_BUFG                            | processzor/IfAndDec_inst/RW_reg_inv_3[0]            | reset_IBUF       |                9 |             16 |         1.78 |
+| ~clk_IBUF_BUFG                            | processzor/IfAndDec_inst/RW_reg_inv_2[0]            | reset_IBUF       |                7 |             16 |         2.29 |
+| ~clk_IBUF_BUFG                            | processzor/IfAndDec_inst/RW_reg_inv_13[0]           | reset_IBUF       |                9 |             16 |         1.78 |
+| ~clk_IBUF_BUFG                            | processzor/IfAndDec_inst/RW_reg_inv_12[0]           | reset_IBUF       |                8 |             16 |         2.00 |
+| ~clk_IBUF_BUFG                            | processzor/IfAndDec_inst/RW_reg_inv_11[0]           | reset_IBUF       |                8 |             16 |         2.00 |
+| ~clk_IBUF_BUFG                            | processzor/IfAndDec_inst/RW_reg_inv_10[0]           | reset_IBUF       |                8 |             16 |         2.00 |
+| ~clk_IBUF_BUFG                            | processzor/IfAndDec_inst/RW_reg_inv_1[0]            | reset_IBUF       |                9 |             16 |         1.78 |
+| ~clk_IBUF_BUFG                            | processzor/IfAndDec_inst/RW_reg_inv_0[0]            | reset_IBUF       |                8 |             16 |         2.00 |
+| ~clk_IBUF_BUFG                            | processzor/IfAndDec_inst/RW_reg_inv[0]              | reset_IBUF       |                8 |             16 |         2.00 |
+| ~clk_IBUF_BUFG                            | processzor/RegisterBlock_inst/DataoutY_reg[0]_4[0]  | reset_IBUF       |                4 |             16 |         4.00 |
+| ~clk_IBUF_BUFG                            | processzor/IfAndDec_inst/E[0]                       | reset_IBUF       |                5 |             16 |         3.20 |
+| ~clk_IBUF_BUFG                            | processzor/RegisterBlock_inst/E[0]                  | reset_IBUF       |                3 |             16 |         5.33 |
+| ~clk_IBUF_BUFG                            | processzor/RegisterBlock_inst/Mrd_reg[0]            | reset_IBUF       |                5 |             16 |         3.20 |
+| ~clk_IBUF_BUFG                            | processzor/RegisterBlock_inst/Mwr_reg_5[0]          | reset_IBUF       |                6 |             16 |         2.67 |
+| ~clk_IBUF_BUFG                            | processzor/RegisterBlock_inst/Mwr_reg_3[0]          | reset_IBUF       |                4 |             16 |         4.00 |
+| ~clk_IBUF_BUFG                            | processzor/RegisterBlock_inst/Mwr_reg_2[0]          | reset_IBUF       |                9 |             16 |         1.78 |
+| ~clk_IBUF_BUFG                            | processzor/RegisterBlock_inst/Mwr_reg_4[0]          | reset_IBUF       |                6 |             16 |         2.67 |
+| ~clk_IBUF_BUFG                            | processzor/RegisterBlock_inst/Sel_Addr_reg_0[0]     | reset_IBUF       |                3 |             16 |         5.33 |
+| ~clk_IBUF_BUFG                            | processzor/RegisterBlock_inst/Sel_Addr_reg[0]       | reset_IBUF       |                3 |             16 |         5.33 |
+| ~clk_IBUF_BUFG                            | processzor/IfAndDec_inst/RW_reg_inv_6[0]            | reset_IBUF       |                6 |             16 |         2.67 |
+| ~clk_IBUF_BUFG                            | processzor/PFC_inst/E[0]                            | reset_IBUF       |               15 |             16 |         1.07 |
+| ~clk_IBUF_BUFG                            | processzor/RegisterBlock_inst/DataoutY_reg[0]_10[0] | reset_IBUF       |                3 |             16 |         5.33 |
+| ~clk_IBUF_BUFG                            | processzor/RegisterBlock_inst/DataoutY_reg[0]_11[0] | reset_IBUF       |                4 |             16 |         4.00 |
+| ~clk_IBUF_BUFG                            | processzor/RegisterBlock_inst/DataoutY_reg[0]_12[0] | reset_IBUF       |                5 |             16 |         3.20 |
+| ~clk_IBUF_BUFG                            | processzor/RegisterBlock_inst/DataoutY_reg[0]_2[0]  | reset_IBUF       |                2 |             16 |         8.00 |
+| ~clk_IBUF_BUFG                            | processzor/RegisterBlock_inst/DataoutY_reg[0]_3[0]  | reset_IBUF       |                3 |             16 |         5.33 |
+| ~clk_IBUF_BUFG                            | processzor/RegisterBlock_inst/DataoutY_reg[0]_7[0]  | reset_IBUF       |                4 |             16 |         4.00 |
+| ~clk_IBUF_BUFG                            | processzor/RegisterBlock_inst/DataoutY_reg[0]_8[0]  | reset_IBUF       |                5 |             16 |         3.20 |
+| ~clk_IBUF_BUFG                            | processzor/RegisterBlock_inst/DataoutY_reg[0]_9[0]  | reset_IBUF       |                6 |             16 |         2.67 |
+| ~clk_IBUF_BUFG                            | processzor/RegisterBlock_inst/DataoutY_reg[0]_6[0]  | reset_IBUF       |                4 |             16 |         4.00 |
+| ~clk_IBUF_BUFG                            | processzor/RegisterBlock_inst/DataoutY_reg[0]_5[0]  | reset_IBUF       |                9 |             16 |         1.78 |
+| ~clk_IBUF_BUFG                            | processzor/RegisterBlock_inst/DataoutY_reg[2]_1[0]  | reset_IBUF       |                6 |             16 |         2.67 |
+| ~clk_IBUF_BUFG                            | processzor/RegisterBlock_inst/DataoutY_reg[2]_2[0]  | reset_IBUF       |                5 |             16 |         3.20 |
+| ~clk_IBUF_BUFG                            | processzor/RegisterBlock_inst/DataoutY_reg[1]_0[0]  | reset_IBUF       |                7 |             16 |         2.29 |
+| ~clk_IBUF_BUFG                            | processzor/RegisterBlock_inst/DataoutY_reg[2]_3[0]  | reset_IBUF       |                6 |             16 |         2.67 |
+| ~clk_IBUF_BUFG                            | processzor/IfAndDec_inst/RW_reg_inv_9[0]            | reset_IBUF       |                6 |             16 |         2.67 |
+| ~clk_IBUF_BUFG                            | processzor/IfAndDec_inst/RW_reg_inv_8[0]            | reset_IBUF       |                6 |             16 |         2.67 |
+| ~clk_IBUF_BUFG                            | processzor/IfAndDec_inst/RW_reg_inv_7[0]            | reset_IBUF       |                4 |             16 |         4.00 |
+| ~clk_IBUF_BUFG                            | processzor/IfAndDec_inst/RW_reg_inv_5[0]            | reset_IBUF       |                8 |             16 |         2.00 |
+|  clk_IBUF_BUFG                            |                                                     | reset_IBUF       |               11 |             17 |         1.55 |
+| ~clk_IBUF_BUFG                            | processzor/PFC_inst/eqOp                            | reset_IBUF       |              166 |            401 |         2.42 |
++-------------------------------------------+-----------------------------------------------------+------------------+------------------+----------------+--------------+
+
+

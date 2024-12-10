@@ -64,10 +64,20 @@ process(reset, Instr_Phase, Instruction)
         Instr_code <= (others => '0');
         
     else
-        if Instr_Phase = "000" then
         Instr_code <= Instruction(17 downto 12);
-             case Instruction(17 downto 12) is
+        if Instr_Phase = "000" then
              
+             Sx_Addr <= (others => '0');
+             Sy_Addr <= (others => '0');
+             DMemAddr_dir <= (others => '0');
+             ENInterrupt <= '0';
+             PortID_dir <= (others => '0');
+             Branch_Addr <= (others => '0');
+             AL_Instr_Ext <= (others => '0');
+             KK_Const <= (others => '0');
+             Instr_code <= (others => '0');
+             case Instruction(17 downto 12) is
+
                 when "000001" => --Load
                         Sx_Addr <= Instruction(11 downto 8);
                         KK_const <= Instruction(7 downto 0);

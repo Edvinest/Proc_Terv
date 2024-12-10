@@ -91,6 +91,8 @@ process(clk, reset, counter ,IORD, IOWR)
                         when 2 =>
                             PortIntoCPU <= PortDataIn;
                         end case;
+                        
+                else PortIntoCPU <= (others => '0');
                 end if;
                 
                 if IORD = '0' and IOWR = '1' then

@@ -1,0 +1,14 @@
+#-----------------------------------------------------------
+# Vivado v2023.2.2 (64-bit)
+# SW Build 4126759 on Thu Feb  8 23:52:05 MST 2024
+# IP Build 4126054 on Fri Feb  9 11:39:09 MST 2024
+# SharedData Build 4115275 on Tue Jan 30 00:40:57 MST 2024
+# Start of session at: Mon Dec  9 17:41:22 2024
+# Process ID: 55097
+# Current directory: /home/edvinest/University/Architektura/proc_terv/proc_terv.runs/impl_1
+# Command line: vivado -log Top_Level.vdi -applog -product Vivado -messageDb vivado.pb -mode batch -source Top_Level.tcl -notrace
+# Log file: /home/edvinest/University/Architektura/proc_terv/proc_terv.runs/impl_1/Top_Level.vdi
+# Journal file: /home/edvinest/University/Architektura/proc_terv/proc_terv.runs/impl_1/vivado.jou
+# Running On: antigamer-pc, OS: Linux, CPU Frequency: 2011.322 MHz, CPU Physical cores: 8, Host memory: 14362 MB
+#-----------------------------------------------------------
+source Top_Level.tcl -notrace

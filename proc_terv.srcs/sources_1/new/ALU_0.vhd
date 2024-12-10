@@ -96,7 +96,7 @@ begin
                     end if;
                         
                 when "000111" => -- Xor sX, KK
-                    Result (15 downto 0):= Result(15 downto 8) & (KK_Const or OP1(7 downto 0));
+                    Result (15 downto 0):= Result(15 downto 8) & (KK_Const xor OP1(7 downto 0));
                     if Result(15 downto 0) = x"0000" then
                         ZeroFlag := '1';
                     else 
@@ -104,7 +104,7 @@ begin
                     end if;
                 
                 when "000110" => -- Xor sX, sY
-                    Result (15 downto 0) := Result(15 downto 8) & (OP1(7 downto 0) or OP2(7 downto 0));
+                    Result (15 downto 0) := Result(15 downto 8) & (OP1(7 downto 0) xor OP2(7 downto 0));
                     if Result(15 downto 0) = x"0000" then
                         ZeroFlag := '1';
                     else
@@ -126,21 +126,21 @@ begin
                     end if;
                 
                 when "011101" => -- Comp sX, KK
-                    if(OP1(7 downto 0) < KK_Const(7 downto 0)) then
+                    if(OP1(15 downto 0) < KK_Const(7 downto 0)) then
                         CarryFlag := '1';
                     else CarryFlag := '0';
                     end if;
-                    if (OP1(7 downto 0) = KK_Const(7 downto 0)) then
+                    if (OP1(15 downto 0) = KK_Const(7 downto 0)) then
                         ZeroFlag := '1';
                     else ZeroFlag := '0';
                     end if;
                     
                 when "011100" => -- Comp sX, sY
-                    if(OP1(7 downto 0) < OP2(7 downto 0)) then
+                    if(OP1(15 downto 0) < OP2(15 downto 0)) then
                         CarryFlag := '1';
                     else CarryFlag := '0';
                     end if;
-                    if (OP1(7 downto 0) = OP2(7 downto 0)) then
+                    if (OP1(15 downto 0) = OP2(15 downto 0)) then
                         ZeroFlag := '1';
                     else ZeroFlag := '0';
                     end if;
@@ -325,15 +325,11 @@ begin
                             end if;
                             
                          when others =>
-                                 Result := (others => '0');
-                                 ZeroFlag := '0';
-                                 CarryFlag := '0';
+                                null;
                     end case;
                     
                when others =>
-                        Result := (others => '0');
-                        ZeroFlag := '0';
-                        CarryFlag := '0';
+                        null;
             end case;
            end if;
        end if;

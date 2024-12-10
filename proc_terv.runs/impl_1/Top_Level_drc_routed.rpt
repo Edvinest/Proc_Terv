@@ -1,0 +1,133 @@
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
+---------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2023.2.2 (lin64) Build 4126759 Thu Feb  8 23:52:05 MST 2024
+| Date         : Mon Dec  9 17:42:50 2024
+| Host         : antigamer-pc running 64-bit Nobara Linux 40 (KDE Plasma)
+| Command      : report_drc -file Top_Level_drc_routed.rpt -pb Top_Level_drc_routed.pb -rpx Top_Level_drc_routed.rpx
+| Design       : Top_Level
+| Device       : xc7z020clg400-1
+| Speed File   : -1
+| Design State : Fully Routed
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+Report DRC
+
+Table of Contents
+-----------------
+1. REPORT SUMMARY
+2. REPORT DETAILS
+
+1. REPORT SUMMARY
+-----------------
+            Netlist: netlist
+          Floorplan: design_1
+      Design limits: <entire design considered>
+           Ruledeck: default
+             Max violations: <unlimited>
+             Violations found: 19
++-----------+----------+----------------------------+------------+
+| Rule      | Severity | Description                | Violations |
++-----------+----------+----------------------------+------------+
+| PDRC-153  | Warning  | Gated clock check          | 7          |
+| REQP-1839 | Warning  | RAMB36 async control check | 11         |
+| ZPS7-1    | Warning  | PS7 block required         | 1          |
++-----------+----------+----------------------------+------------+
+
+2. REPORT DETAILS
+-----------------
+PDRC-153#1 Warning
+Gated clock check  
+Net processzor/PFC_inst/phasenum_reg[1]_0[0] is a gated clock net sourced by a combinational pin processzor/PFC_inst/Instr_code_reg[5]_i_2/O, cell processzor/PFC_inst/Instr_code_reg[5]_i_2. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+Related violations: <none>
+
+PDRC-153#2 Warning
+Gated clock check  
+Net processzor/PFC_inst/phasenum_reg[1]_1[0] is a gated clock net sourced by a combinational pin processzor/PFC_inst/KK_const_reg[7]_i_2/O, cell processzor/PFC_inst/KK_const_reg[7]_i_2. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+Related violations: <none>
+
+PDRC-153#3 Warning
+Gated clock check  
+Net processzor/PFC_inst/phasenum_reg[1]_2[0] is a gated clock net sourced by a combinational pin processzor/PFC_inst/Branch_Addr_reg[11]_i_2/O, cell processzor/PFC_inst/Branch_Addr_reg[11]_i_2. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+Related violations: <none>
+
+PDRC-153#4 Warning
+Gated clock check  
+Net processzor/PFC_inst/phasenum_reg[1]_3[0] is a gated clock net sourced by a combinational pin processzor/PFC_inst/PortID_dir_reg[7]_i_2/O, cell processzor/PFC_inst/PortID_dir_reg[7]_i_2. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+Related violations: <none>
+
+PDRC-153#5 Warning
+Gated clock check  
+Net processzor/PFC_inst/phasenum_reg[1]_4[0] is a gated clock net sourced by a combinational pin processzor/PFC_inst/DMemAddr_dir_reg[5]_i_2/O, cell processzor/PFC_inst/DMemAddr_dir_reg[5]_i_2. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+Related violations: <none>
+
+PDRC-153#6 Warning
+Gated clock check  
+Net processzor/PFC_inst/phasenum_reg[1]_5[0] is a gated clock net sourced by a combinational pin processzor/PFC_inst/Sy_Addr_reg[3]_i_2/O, cell processzor/PFC_inst/Sy_Addr_reg[3]_i_2. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+Related violations: <none>
+
+PDRC-153#7 Warning
+Gated clock check  
+Net processzor/PFC_inst/phasenum_reg[1]_6[0] is a gated clock net sourced by a combinational pin processzor/PFC_inst/Sx_Addr_reg[3]_i_2/O, cell processzor/PFC_inst/Sx_Addr_reg[3]_i_2. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+Related violations: <none>
+
+REQP-1839#1 Warning
+RAMB36 async control check  
+The RAMB36E1 mem/ram_2k_generate.akv7.kcpsm6_rom has an input control pin mem/ram_2k_generate.akv7.kcpsm6_rom/ADDRARDADDR[10] (net: mem/Q[6]) which is driven by a register (processzor/PFC_inst/programflowcontrol.programcounter_reg[6]) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
+Related violations: <none>
+
+REQP-1839#2 Warning
+RAMB36 async control check  
+The RAMB36E1 mem/ram_2k_generate.akv7.kcpsm6_rom has an input control pin mem/ram_2k_generate.akv7.kcpsm6_rom/ADDRARDADDR[11] (net: mem/Q[7]) which is driven by a register (processzor/PFC_inst/programflowcontrol.programcounter_reg[7]) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
+Related violations: <none>
+
+REQP-1839#3 Warning
+RAMB36 async control check  
+The RAMB36E1 mem/ram_2k_generate.akv7.kcpsm6_rom has an input control pin mem/ram_2k_generate.akv7.kcpsm6_rom/ADDRARDADDR[12] (net: mem/Q[8]) which is driven by a register (processzor/PFC_inst/programflowcontrol.programcounter_reg[8]) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
+Related violations: <none>
+
+REQP-1839#4 Warning
+RAMB36 async control check  
+The RAMB36E1 mem/ram_2k_generate.akv7.kcpsm6_rom has an input control pin mem/ram_2k_generate.akv7.kcpsm6_rom/ADDRARDADDR[13] (net: mem/Q[9]) which is driven by a register (processzor/PFC_inst/programflowcontrol.programcounter_reg[9]) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
+Related violations: <none>
+
+REQP-1839#5 Warning
+RAMB36 async control check  
+The RAMB36E1 mem/ram_2k_generate.akv7.kcpsm6_rom has an input control pin mem/ram_2k_generate.akv7.kcpsm6_rom/ADDRARDADDR[14] (net: mem/Q[10]) which is driven by a register (processzor/PFC_inst/programflowcontrol.programcounter_reg[10]) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
+Related violations: <none>
+
+REQP-1839#6 Warning
+RAMB36 async control check  
+The RAMB36E1 mem/ram_2k_generate.akv7.kcpsm6_rom has an input control pin mem/ram_2k_generate.akv7.kcpsm6_rom/ADDRARDADDR[4] (net: mem/Q[0]) which is driven by a register (processzor/PFC_inst/programflowcontrol.programcounter_reg[0]) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
+Related violations: <none>
+
+REQP-1839#7 Warning
+RAMB36 async control check  
+The RAMB36E1 mem/ram_2k_generate.akv7.kcpsm6_rom has an input control pin mem/ram_2k_generate.akv7.kcpsm6_rom/ADDRARDADDR[5] (net: mem/Q[1]) which is driven by a register (processzor/PFC_inst/programflowcontrol.programcounter_reg[1]) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
+Related violations: <none>
+
+REQP-1839#8 Warning
+RAMB36 async control check  
+The RAMB36E1 mem/ram_2k_generate.akv7.kcpsm6_rom has an input control pin mem/ram_2k_generate.akv7.kcpsm6_rom/ADDRARDADDR[6] (net: mem/Q[2]) which is driven by a register (processzor/PFC_inst/programflowcontrol.programcounter_reg[2]) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
+Related violations: <none>
+
+REQP-1839#9 Warning
+RAMB36 async control check  
+The RAMB36E1 mem/ram_2k_generate.akv7.kcpsm6_rom has an input control pin mem/ram_2k_generate.akv7.kcpsm6_rom/ADDRARDADDR[7] (net: mem/Q[3]) which is driven by a register (processzor/PFC_inst/programflowcontrol.programcounter_reg[3]) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
+Related violations: <none>
+
+REQP-1839#10 Warning
+RAMB36 async control check  
+The RAMB36E1 mem/ram_2k_generate.akv7.kcpsm6_rom has an input control pin mem/ram_2k_generate.akv7.kcpsm6_rom/ADDRARDADDR[8] (net: mem/Q[4]) which is driven by a register (processzor/PFC_inst/programflowcontrol.programcounter_reg[4]) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
+Related violations: <none>
+
+REQP-1839#11 Warning
+RAMB36 async control check  
+The RAMB36E1 mem/ram_2k_generate.akv7.kcpsm6_rom has an input control pin mem/ram_2k_generate.akv7.kcpsm6_rom/ADDRARDADDR[9] (net: mem/Q[5]) which is driven by a register (processzor/PFC_inst/programflowcontrol.programcounter_reg[5]) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
+Related violations: <none>
+
+ZPS7-1#1 Warning
+PS7 block required  
+The PS7 cell must be used in this Zynq design in order to enable correct default configuration.
+Related violations: <none>
+
+

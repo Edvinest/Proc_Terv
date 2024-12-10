@@ -54,7 +54,7 @@ begin
         when "010" => 
             Dataxin <= ALUresult;
         when "011" => 
-            Dataxin <= "00000000" & KK_const;
+            Dataxin <=  "00000000" & KK_const;
         when "100" =>
             Dataxin <= Dy;
         when others =>

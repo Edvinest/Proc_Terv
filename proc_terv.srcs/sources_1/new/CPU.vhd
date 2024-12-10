@@ -155,7 +155,6 @@ end component;
     signal SxAddr           : STD_LOGIC_VECTOR(3 downto 0);
     signal SyAddr           : STD_LOGIC_VECTOR(3 downto 0);
     signal RW               : STD_LOGIC;
-    signal Data_In          : STD_LOGIC_VECTOR(15 downto 0);
     signal Data_Out_x       : STD_LOGIC_VECTOR(15 downto 0);
     signal Data_Out_y       : STD_LOGIC_VECTOR(15 downto 0);
     signal PortID_dir       : STD_LOGIC_VECTOR(7 downto 0);
@@ -163,8 +162,8 @@ end component;
     signal PortID_sel       : STD_LOGIC;
     signal IORD             : STD_LOGIC;
     signal IOWR             : STD_LOGIC;
-    signal MRd              : STD_LOGIC;
-    signal MWr              : STD_LOGIC;
+    signal MRd             : STD_LOGIC;
+    signal MWr             : STD_LOGIC;
     signal PortIntoCPU      : STD_LOGIC_VECTOR(15 downto 0);
     signal Instr_code       : STD_LOGIC_VECTOR(5 downto 0);
     signal Branch_addr      : STD_LOGIC_VECTOR(11 downto 0);
@@ -181,6 +180,7 @@ end component;
     signal DataMemOut       : STD_LOGIC_VECTOR(15 downto 0);
     signal AL_Instr_Ext     : STD_LOGIC_VECTOR(3 downto 0);
     signal ALU_Result       : STD_LOGIC_VECTOR(15 downto 0);
+    signal Data_in          : STD_LOGIC_VECTOR (15 downto 0);
 
 
 begin
@@ -190,7 +190,7 @@ begin
         port map (
             Clk => clk,
             Reset => Reset,
-            Dataxin => Data_in,
+            Dataxin => Data_In,
             SX_addr => SxAddr,
             SY_addr => SyAddr,
             RW => RW,
